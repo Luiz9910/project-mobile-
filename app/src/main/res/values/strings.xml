@@ -1,0 +1,46 @@
+<resources>
+    <string name="app_name">ProjetoFaculdade</string>
+    <string name="titulo_principal">Community Aid</string>
+    <string name="hint_email">Email</string>
+    <string name="hint_senha">Senha</string>
+    <string name="txt_button_entrar">Entrar</string>
+    <string name="txt_esqueceu_a_senha">Esqueceu a senha?</string>
+    <string name="txt_nao_tem_conta"> <font color="#FF000000">Não tem conta?</font> <font color="#4E10DA">Crie sua conta agora!</font></string>
+
+
+    //tela2
+    <string name="titulo_principal2">Crie sua conta</string>
+    <string name="nome_completo1">Nome Completo *</string>
+    <string name="hint_NomeCompleto2">Digite seu nome</string>
+    <string name="e_mail">E-mail *</string>
+    <string name="hint_Email2">Digite seu E-mail</string>
+    <string name="senha">Senha *</string>
+    <string name="hint_Senha2">Digite sua senha</string>
+
+    <string name="empresa">Empresa</string>
+    <string name="Pessoa_fisica">Pessoa Física</string>
+    <string name="continuar">Continuar</string>
+
+
+    //tela3
+    <string name="pais1">País</string>
+    <string name="pais2">Digite seu País</string>
+    <string name="estado1">Estado</string>
+    <string name="estado2">Digite seu estado</string>
+    <string name="cidade1">Cidade</string>
+    <string name="cidade2">Digite sua Cidade</string>
+    <string name="cadastrar">Cadastrar</string>
+
+
+    //tela4
+    <string name="editar_perfil">EDITAR PERFIL</string>
+    <string name="nome_so_usuario">Nome do Usuário</string>
+    <string name="descricao">descrição do usuário</string>
+    <string name="localizacao">Localização</string>
+    <string name="posts">POSTS</string>
+    <string name="nome_do_usuario2">Nome do usuário</string>
+    <string name="texto1">Bom dia! Aqui na prefeitura da cidade Notamos que os cachorros de rua estão passando por dificuldades na chuva, alguma empresa gostaria de fazer algumas casinhas para que sirvam de abrigos para os cachorros? </string>
+    <string name="number4">4</string>
+    <string name="number3">3</string>
+    <string name="texto2">Boa Noite! Estamos com novos planos para ajudar os mais necessitados no municipio</string>
+</resources>
