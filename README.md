@@ -67,13 +67,9 @@ O Sistema deve ter um botão para editar arquivo, onde após clicado ele será r
 ![Not](https://user-images.githubusercontent.com/81191099/230793212-f95e9eac-5618-4c0e-996a-a6563a83e37a.png)
 
 # Diagrama UML Mobile 
-## parte1:
-![parte2](https://user-images.githubusercontent.com/95968468/230752000-116c1e7d-8748-4519-a1b9-3318d37e9123.png)
-## parte2:
-![parte1](https://user-images.githubusercontent.com/95968468/230751998-d5850ebb-6799-431c-b62d-c944601fc5c3.png)
-
+![15 04 2023_19 40 53_REC](https://user-images.githubusercontent.com/95968468/232256345-aec47772-a258-4699-b963-44e8d750dee2.png)
 # Diagrama UML (Back-End)
-![08 04 2023_22 32 42_REC](https://user-images.githubusercontent.com/95968468/230752522-31c4e5db-849c-4945-ac5b-11ce21b96b4e.png)
+![15 04 2023_19 40 53_REC](https://user-images.githubusercontent.com/95968468/232256345-aec47772-a258-4699-b963-44e8d750dee2.png)
 
 # Api / Contrato JSON 
 ## EndPoints 
@@ -413,9 +409,11 @@ Esse endpoint é responsável por atualizar uma resposta existente.
 #### Parâmetros:  
 Id: o Id referente a resposta. 
 Response: Para trocar o texto de sua resposta. 
+```
 {
   "response": "fasfdsofodmfodsmfomsdofmdofms",
 }
+```
 #### Resposta: 
 Ok! 200 
 
