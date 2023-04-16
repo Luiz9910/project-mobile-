@@ -95,7 +95,7 @@ Exemplo de resposta:
   token: “dsnaujifdbsdjfnidosfusdjfmdsjifhisdkfjsdnifksdjfbsdujfiodsnfisdkfisdhfisjtttttttthhshshshsshshh”  
 } 
 ```
-### Get / users
+### Get / user/users
 Esse endpoint é responsável por retornar todos os usuários que têm no sistema 
 #### Parâmetros: 
 search: name do usuário para procurar ele no banco de dados. 
@@ -198,88 +198,7 @@ Exemplo de resposta:
   response: “Sucessfully deleted user” 
 }  
 ```
-### Get / location/{id} 
-Esse endpoint é responsável retorna os dados da localização da empresa com base no ID fornecido. 
-#### Parâmetros:  
-user_id: refere-se ao usuário que deseja usar essas informações de localização para si mesmo. 
-```
-{
-  "user_id": 1
-}
-```
-#### Resposta: 
-Ok! 200 
-
-Exemplo de resposta:
-```
-{ 
-
-  Id: 1, 
-  city: “cidade blue lock”, 
-  state: “Wano”, 
-  country: “Brasil”, 
-  user_id: 1 
-} 
-```
-### Post/ location 
-Esse endpoint é responsável por enviar os dados da localização da empresa para poder salvar no banco de dados, mas o usuário só precisa preencher caso ele for uma empresa. 
-#### Parâmetros:  
-city: representa a cidade onde a empresa fica localizada. 
-state: representa o estado onde a empresa fica localizada. 
-user_id: refere-se ao usuário que deseja usar essas informações de localização para si mesmo. 
-```
-{
-  "city": "ilha de itamaracá",
-  "state": "pernambuco",
-  "user_id": 2
-}
-```
-#### Resposta:  
-Ok! 200 
-
-Exemplo de resposta:  
-```
-{ 
-  response: “data update successsfully” 
-} 
-```
-### Put / location/{id} 
-Esse endpoint por atualizar os da localização de uma empresa de acordo com o ID informado. 
-#### Parâmetros: 
-Id: Id da empresa cuja localização da empresa será atualizada. 
-city: cidade onde a empresa fica localizada (opcional). 
-state: estado onde a empresa fica localizada (opcional). 
-country: país onde a empresa fica localizada (opcional). 
-```
-{
-  "city": "ilha",
-  "state": "pernambuco",
-  "country": "brasil"
-}
-```
-#### Resposta:
-Ok! 200
-
-Exemplo de resposta:
-```
-{
-  "successful user update"
-}
-```
-### Delete / location/{id} 
-Esse endpoint por deletar a localização da empresa com o id fornecido. 
-Parâmetros:  
-Id: para indicar a localização que o usuário deseja deletar. 
-#### Resposta: 
-Ok! 200 
-
-Exemplo de resposta: 
-```
-{ 
-  response:  ”successsfully deleted location” 
-}  
-```
-### Get / publications  
+### Get / project/projects/search="example"
 Esse endpoint por retornar toda a lista de publicações cadastradas no sistema. 
 #### Parâmetros:  
 search: O usuário pode pesquisar por publicações relacionadas ao que deseja. 
@@ -308,7 +227,23 @@ Exemplo de resposta:
   } 
 ] 
 ```
-### Post / publicacation 
+### Get / project/{id}
+Esse endpoint por retornar uma publicação cadastrada no sistema. 
+#### Parâmetros:  
+id: id referente ao projeto
+#### Resposta:  
+Ok! 200 
+
+Exemplo de resposta:  
+```
+{ 
+  id: 1, 
+  title: “Exemple”, 
+  body”: “Empresas interessadas para pasceria com um processo que envolve mobilidade urbana chame por esse e-mail para discutir sobre o assunto.”, 
+  user_id: 1 
+}
+```
+### Post / project 
 Esse endpoint é responsável por criar uma publicação no sistema. 
 ####Parâmetros: 
 title: título da publicação. 
@@ -345,7 +280,7 @@ Exemplo de resposta:
   response: “successfully update” 
 } 
 ```
-### Delete / publication/{id} 
+### Delete / project/{id} 
 Esse endpoint é reponsável por deletar uma publicação do sistema. 
 #### Parâmetros: 
 Id: identificador da publicação a ser excluída. 
@@ -358,7 +293,7 @@ Exemplo de resposta:
   response: “Sucessfully deleted publication” 
 } 
 ```
-### Get / chatResponse 
+### Get / comment/comments
 Esse endpoint é responsável por retornar uma lista de todas as respostas para uma determinada publicação. 
 #### Parâmetros: 
 Nenhum. 
@@ -383,7 +318,7 @@ Exemplo de resposta:
   }
 ] 
 ```
-### Post / chatResponse 
+### Post / comment 
 Esse endpoint é responsável por criar uma resposta para uma determinada publicação. 
 #### Parâmetros: 
 publication_id: vai se referir ao id da publicação que o usuário colocou. 
@@ -405,7 +340,7 @@ Exemplo de resposta:
   response: “answer successfully saved“ 
 } 
 ```
-### Put / chatResponse/{id} 
+### Put / comment/{id} 
 Esse endpoint é responsável por atualizar uma resposta existente. 
 #### Parâmetros:  
 Id: o Id referente a resposta. 
@@ -424,7 +359,7 @@ Exemplo de resposta:
   response: “answer successfully updated” 
 } 
 ```
-### Delete / chatResponse/{id}
+### Delete / comment/{id}
 Esse endpoint é responsável por deletar uma resposta existente. 
 #### Parâmetros:  
 Id: id da resposta a ser removida. 
