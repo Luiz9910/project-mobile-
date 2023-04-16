@@ -2,7 +2,7 @@
 
 **Caso de Uso 1: Cadastro de Usuário**
 
-Descrição: Um usuário pode se cadastrar ao sistema. O usuário deve fornecer informações básicas, como nome, e-mail e senha, para criar uma nova conta. Além disso, o usuário deve ser capaz de inserir informações adicionais do perfil do Gerente, tais como foto de perfil e descrição.
+Descrição: Um usuário pode se cadastrar ao sistema. O usuário deve fornecer informações básicas, como nome, e-mail e senha, para criar uma nova conta. Além disso, o usuário deve ser capaz de inserir informações adicionais do perfil tais como foto de perfil e descrição.
 
 Fluxo Principal:
 
