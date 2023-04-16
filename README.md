@@ -250,7 +250,7 @@ Ok! 200
 Exemplo de resposta: 
 ```
 { 
-  token: “dsnaujifdbsdjfnidosfusdjfmdsjifhisdkfjsdnifksdjfbsdujfiodsnfisdkfisdhfisjtttttttthhshshshsshshh”  
+  token: “dsnaujifdbsdjfnidosfusdjfmdsjifhisdkfjsdnifksdjfbsdujfiodsnfisdkfisdhfisjtttttttthhshshshsshshhghdg”  
 } 
 ```
 ### Get / user/users
