@@ -417,7 +417,7 @@ user_id: refere-se ao usuário que deseja usar essas informações de localizaç
 #### Resposta: 
 Nenhum conteúdo! 204 
 
-### Put / publication/{id} 
+### Put / project/{id} 
 Esse endpoint é responsável por atualizar os dados da publicação. 
 #### Parâmetros: 
 Id: identificador da publicação a ser atualizada. 
