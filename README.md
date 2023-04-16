@@ -426,7 +426,8 @@ body: nova descrição da publicação (opcional).
 ```
 {
   "title": "project dogs",
-  "body": "example"
+  "body": "Olá patrocinadores em potencial! Gostaria de apresentar a vocês um projeto incrível que está em busca de apoio para se tornar realidade. Trata-se de um programa de educação ambiental para crianças carentes, que tem como objetivo conscientizá-las sobre a importância da preservação da natureza. Com o seu patrocínio, poderemos garantir a compra de materiais didáticos e a contratação de profissionais capacitados para ministrar as aulas. Acreditamos que investir em educação ambiental é um passo importante para construirmos um futuro sustentável. Junte-se a nós nessa missão!"
+  
 }
 ```
 #### Resposta: 
