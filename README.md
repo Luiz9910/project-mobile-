@@ -1,45 +1,204 @@
 # Definição de funcionalidades 
-## Tela de Login 
-O sistema deve reconhecer o e-mail e senha do usuário essa é a funcionalidade básica que seria permitir que o usuário digite seu e-mail e senha para acessar o sistema. 
 
-O sistema deve verificar as credenciais do usuário e autenticar o usuário com sucesso se o e-mail e senha inseridos forem corretos. 
+**Caso de Uso 1: Cadastro de Usuário**
 
-O sistema deve exibir mensagens de erro relevantes caso o e-mail ou senha inseridos pelo usuário estejam incorretos ou caso ocorra um erro durante a autenticação. 
+Descrição: Um usuário pode se cadastrar ao sistema. O usuário deve fornecer informações básicas, como nome, e-mail e senha, para criar uma nova conta. Além disso, o usuário deve ser capaz de inserir informações adicionais do perfil do Gerente, tais como foto de perfil e descrição.
 
-O Sistema deve Redirecionamento para a página principal Caso a autenticação do usuário seja bem-sucedida, o sistema deve redirecionar o usuário para a página principal do sistema. 
+Fluxo Principal:
 
-O sistema deve incluir uma validação de e-mail para garantir que o e-mail inserido pelo usuário seja válido antes de tentar autenticar o usuário. 
-## Tela de cadastro 
-O sistema deve permitir que os usuários criem uma nova conta preenchendo as informações necessárias, como nome completo, endereço de e-mail etc. 
+* O usuário acessa a página de cadastro do sistema.
+* O sistema exibe a tela de cadastro com campos para nome, e-mail, seleção de tipo de conta (pessoa física ou jurídica) e senha
+* O usuário preenche os campos obrigatórios e clica em "Cadastrar".
+* O sistema valida os dados inseridos pelo usuário.
 
-O Sistema deve deixar os usuários poder escolher um e-mail de usuário único para a sua conta do que será utilizado para identificá-los na plataforma. 
+Fluxo Alternativo:
 
-O Sistema deve deixar os usuários definir uma senha segura para a sua conta, que será utilizada para acessar. 
+Se o usuário cometer algum erro durante o preenchimento do formulário, o sistema deve exibir uma mensagem de erro e permitir que o usuário corrija as informações incorretas.
 
-O sistema deve ter um campo para o usuário ou empresa uma descrição sobre si. 
+------------------------------------- 
+**Caso de Uso 2: Login**
 
-O sistema deve ter um campo para identificar se o usuário é uma empresa ou uma pessoa. 
+Descrição: o usuário deve colocar seu Email e senha para acessar o sistema.
 
-O sistema deve ter um botão de cadastrar, onde após enviado e caso as credenciais estiver tudo correto, ele será redirecionado para a página de login.  
-## Tela de perfil 
+Fluxo Principal:
 
-O Sistema deve mostrar todos os dados do usuário na tela de perfil, como: nome, descrição. 
+* O usuário acessa a página de login do sistema.
+* O sistema exibe a tela de login com campos para Email e senha.
+* O usuário insere seu nome de usuário e senha e clica em "Login".
+* O sistema valida as informações de login.
+* Se as informações estiverem corretas, o sistema redireciona o usuário para a página inicial do sistema.
 
-O sistema deve mostrar na tela de perfil a cidade onde o usuário mora ou onde a empresa fica localizada, será mostrado dados como cidade, país, estado. 
+Fluxo Alternativo:
 
-O Sistema deve ter um botão para redirecionar o usuário para página onde os usuários poder editar suas informações pessoais, como nome completo, foto de perfil, biografia e localização. 
+Se as informações estiverem incorretas, o sistema exibe uma mensagem de erro e solicita que o usuário tente novamente.
 
-O Sistema deve deixar os usuários poder publicar incluindo texto, imagens, vídeos e links. 
+*	O usuário esquece sua senha.
+*	O usuário clica no botão "Esqueci minha senha".
+*	O sistema exibe um formulário para redefinir a senha do usuário.
+*	O usuário insere seu e-mail cadastrado e clica em "Enviar".
+*	O sistema envia um e-mail com instruções para redefinir a senha do usuário.
+*	O usuário segue as instruções no e-mail para redefinir sua senha.
+*	O usuário retorna à tela de login e insere sua nova senha para fazer login no sistema.
 
-O Sistema deve mostrar todas as publicações que o usuário fez dentro da plataforma, onde. 
+------------------------------------- 
+**Caso de Uso 3: Tela de Perfil do usuário**
 
-O Sistema deve reconhecer o botão de deletar publicação, onde após clicado o usuário receberá uma mensagem de confirmação. 
+Descrição: Um usuário ver seu perfil no sistema para que possa ver suas informações, e publicações feitas por ele, além de poder editar seu perfil.
 
-O Sistema deve deixar os usuários poder publicar incluindo texto, imagens e links. 
+Fluxo Principal:
 
-O Sistema deve mostrar todas as publicações que o usuário fez dentro da plataforma, onde. 
+*	O usuário acessa a página de perfil do sistema.
+*	O sistema exibe a tela de perfil do usuário com informações como foto de perfil, nome e lista de publicações realizadas.
+*	O usuário pode visualizar e interagir com suas publicações, como editar ou excluí-las.
+*	O usuário clica no botão "Editar Perfil".
+*	O sistema exibe um formulário para editar informações do perfil, como nome, foto de perfil e outros campos opcionais.
+*	O usuário pode preencher os campos desejados e clicar em "Atualizar" para atualizar suas informações de perfil.
+*	O sistema valida as informações inseridas pelo usuário e exibe uma mensagem de confirmação de atualização de perfil
 
-O Sistema deve ter um botão para editar arquivo, onde após clicado ele será redirecionado para a página de editar publicação. 
+Fluxo Alternativo:
+
+Se o usuário ainda não tenha publicações realizadas ainda.
+
+*	O sistema exibe uma mensagem indicando que não há publicações para exibir.
+*	O usuário pode optar por criar uma nova publicação a partir desta tela de perfil.
+*	O sistema redireciona o usuário para a tela de criação de publicação
+
+Fluxo Alternativo: 
+
+Se o usuário não queria atualizar informações do seu Perfil.
+
+*	O sistema exibe a tela de perfil do usuário com as informações existentes.
+------------------------------------- 
+**Caso de Uso 4: Tela de Publicação**
+
+Descrição: Um usuário pode fazer uma nova publicação no formato de texto e podendo incluir imagem caso ele deseje. 
+
+Fluxo Principal:
+
+*	O usuário acessa a tela de publicação do sistema.
+*	O sistema exibe um formulário para criação de nova publicação, com campos para título, texto e opção para adicionar uma foto.
+*	O usuário preenche os campos desejados e clica em "Publicar".
+*	O sistema valida os campos e exibe uma mensagem de confirmação da publicação realizada.
+*	A nova publicação é adicionada à lista de publicações do usuário na tela de perfil.
+
+Fluxo Alternativo:
+
+O usuário decide não adicionar uma foto à publicação. 
+
+*	O sistema permite que a publicação seja realizada sem uma foto.
+
+Fluxo Alternativo:
+
+O sistema detecta um erro na validação dos campos preenchidos pelo usuário.
+
+*	O sistema exibe uma mensagem de erro indicando quais campos precisam ser corrigidos.
+*	O usuário corrige os campos apontados e tenta publicar novamente.
+
+Fluxo Alternativo:
+
+O usuário decide não publicar nova publicação.
+
+*	O sistema redireciona o usuário de volta à tela anterior sem salvar a nova publicação.
+------------------------------------- 
+**Caso de Uso 5: Tela Principal**
+
+Descrição: O usuário decide ver as publicações de outros usuários e interagir com elas.
+
+Fluxo Principal:
+
+*	O usuário acessa a tela principal do sistema.
+*	O sistema exibe uma lista com as publicações de outros usuários, incluindo título, texto e foto (se houver).
+*	O usuário pode rolar a lista para baixo para visualizar mais publicações.
+*	O usuário pode clicar no botão "Curtir" para dar um like na publicação.
+*	O usuário pode clicar no botão "Responder" para adicionar um comentário à publicação.
+*	O sistema exibe a opção para o usuário escrever o comentário.
+*	O usuário escreve o comentário e clica em "Enviar".
+*	O sistema valida o comentário e exibe a mensagem de confirmação.
+
+Fluxo Alternativo:
+
+O sistema não encontra nenhuma publicação para exibir.
+
+*	O sistema exibe uma mensagem indicando que não há publicações disponíveis.
+
+Fluxo Alternativo:
+
+O usuário já curtiu a publicação anteriormente.
+
+*	O sistema remove o like anterior.
+
+Fluxo Alternativo:
+
+O sistema detecta um erro na validação do comentário enviado pelo usuário.
+
+* O sistema exibe uma mensagem de erro indicando que o comentário não pôde ser enviado e pede que o usuário corrija o erro.
+
+Fluxo Alternativo: 
+
+O usuário decide não enviar o comentário.
+
+*	O sistema cancela a ação e volta a tela 	do fluxo principal.
+
+------------------------------------- 
+**Caso de Uso 6: Tela de pesquisa de publicação**
+
+Descrição: O usuário decide pesquisar uma publicação.
+
+Fluxo Principal:
+
+*	O usuário acessa a tela de pesquisa de publicações do sistema.
+*	O sistema exibe uma barra de pesquisa para o usuário digitar o termo de busca.
+*	O usuário digita o termo de busca e clica em "Pesquisar".
+*	O sistema valida o termo de busca e exibe uma lista de resultados da pesquisa com as publicações que correspondem ao termo buscado.
+*	O usuário pode rolar a lista para baixo para visualizar mais resultados.
+*	O usuário pode clicar em uma publicação da lista para visualizar os detalhes da publicação.
+
+Fluxo Alternativo:
+
+O sistema não encontra nenhuma publicação correspondente ao termo de busca.
+
+*	O sistema exibe uma mensagem indicando que não há resultados para a pesquisa.
+
+Fluxo Alternativo:
+
+O usuário decide não visualizar os detalhes da publicação.
+
+*	O sistema cancela a ação e volta a tela do fluxo principal.
+
+Fluxo Alternativo: 
+
+O sistema detecta um erro ao tentar exibir os detalhes da publicação selecionada pelo usuário.
+
+*	O sistema exibe uma mensagem de erro indicando que não foi possível exibir os detalhes da publicação e pede que o usuário tente novamente mais tarde.
+------------------------------------- 
+**Caso de Uso 7: Tela de Configuração**
+
+Descrição: O usuário deseja mudar sua senha ou como deseja receber as notificações.
+
+Fluxo Principal:
+
+*	O usuário acessa a tela de configurações do sistema.
+*	O sistema exibe as opções disponíveis: "Trocar senha" e "Receber notificações".
+*	O usuário seleciona a opção "Trocar senha".
+*	O sistema exibe um formulário para o usuário preencher com sua senha atual, nova senha e confirmação da nova senha.
+*	O usuário preenche o formulário e clica em "Salvar".
+*	O sistema valida as informações fornecidas pelo usuário e atualiza a senha do usuário no sistema.
+*	O sistema exibe uma mensagem confirmando a atualização da senha do usuário.
+
+Fluxo Alternativo:
+
+*	O usuário seleciona a opção "Receber notificações".
+*	O sistema exibe um switch para o usuário habilitar ou desabilitar as notificações do aplicativo.
+*	O usuário seleciona sua preferência e clica em "Salvar".
+*	O sistema atualiza as configurações do usuário e exibe uma mensagem confirmando a atualização das configurações.
+
+Fluxo Alternativo: 
+
+O sistema detecta um erro ao tentar atualizar a senha do usuário.
+
+*	O sistema exibe uma mensagem de erro indicando que não foi possível exibir os detalhes da publicação e pede que o usuário tente novamente mais tarde.
+------------------------------------- 
+
 
 # Link do Figma: https://www.figma.com/file/nSiyio9tNPpJLvToDvIdPu/Untitled?node-id=0-1&t=L3aTWE0vK33XSWnS-0
 ## Tela de Login:
