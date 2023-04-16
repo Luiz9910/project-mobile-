@@ -230,7 +230,220 @@ O sistema detecta um erro ao tentar atualizar a senha do usuário.
 # Diagrama UML (Back-End)
 ![david3](https://user-images.githubusercontent.com/95968468/232264426-a0905ca6-0463-4523-b809-f783e18c660d.png)
 
+# Api / Contrato JSON 
+## EndPoints 
+## EndPoint User
+### Post/ authentication 
+Esse endpoint é responsável por autenticação do usuário. 
+#### Parâmetros: 
+email: Email do usuário existente. 
+password: senha do usuário existente e referente ao e-mail  
+```
+{
+  "email": "luiz@gmail.com",
+  "password": "Luiz1992@"
+}
+```
+#### Respostas: 
+Ok! 200 
 
+Exemplo de resposta: 
+```
+{ 
+  token: “dsnaujifdbsdjfnidosfusdjfmdsjifhisdkfjsdnifksdjfbsdujfiodsnfisdkfisdhfisjtttttttthhshshshsshshhghdg”  
+} 
+```
+### Get / user/users
+Esse endpoint é responsável por retornar todos os usuários que têm no sistema 
+#### Parâmetros: 
+search: name do usuário para procurar ele no banco de dados. 
+```
+{
+  "search": "project"
+}
+```
+#### Resposta:  
+200! Ok 
+
+Exemplo de resposta: 
+```
+[ 
+  { 
+    Id: 1, 
+    name: “luiz”, 
+    email: ”luiz@gmail.com”, 
+    description: “empresa focada na área de tecnologia, com o objetivo programação aos iniciantes”, 
+    Is_company: “true” 
+  }, 
+  { 
+    Id: 2, 
+    name: “lucas”, 
+    email: ”lucas@gmail.com”, 
+    description: “empresa focada na área de tecnologia, com o objetivo programação aos iniciantes”, 
+    Is_company: “true” 
+  } 
+] 
+```
+### Get / user/{id}
+Esse endpoint é responsável por retornar os dados do usuário a partir do id. 
+#### Parâmetros:  
+id: id do usuário para procurar ele no banco de dados. 
+#### Resposta:  
+200! Ok
+
+Exemplo de resposta: 
+```
+{ 
+  Id: 1, 
+  name: “luiz”, 
+  email: ”luiz@gmail.com”, 
+  description: “empresa focada na área de tecnologia, com o objetivo programação aos iniciantes”, 
+  Is_company: ”true” 
+} 
+```
+### Post / user 
+Esse endpoint é responsável por criar um usuário no sistema. 
+####Parâmetros:
+name: nome do usuário ou da empresa. 
+email: E-mail do usuário ou da empresa. 
+password: Senha do usuário ou da empresa. 
+description: uma breve descrição do usuário ou da empresa. 
+is_company: indicar se o usuário é uma empresa (true) ou não (false). 
+```
+{
+  "name": "luiz",
+  "email": "example@gmail.com",
+  "password": "lucasdasd",
+  "description": "Empresa de desenvolvimento de jogos",
+  "is_company": "true"
+}
+```
+#### Resposta: 
+Created! 201 
+
+Exemplo de resposta:  
+```
+{ 
+  response: “user successfully saved” 
+} 
+```
+### Put/ user/{id}
+Esse endpoint é responsável por atualizar os dados do usuário no sistema de banco de dados. 
+#### Parâmetros: 
+Id: identificado do usuário a ser atualizado. 
+name: nome do usuário ou empresa (opcional). 
+description:  breve descrição da empresa (opcional). 
+```
+{
+  "name": "luiz",
+  "description": "Empresa de desenvolvimento de jogos",
+  "is_company": "true"
+}
+```
+#### Resposta: 
+No content! 204 
+
+### Delete / user/{id}
+Esse endpoint é responsável por deletar um user do sistema de banco de dados. 
+#### Parâmetros:
+Id: para identificar o usuário que será removido. 
+#### Resposta: 
+Ok! 200  
+
+Exemplo de resposta: 
+```
+{ 
+  response: “Sucessfully deleted user” 
+}  
+```
+### Get / project/projects/search="example"
+Esse endpoint por retornar toda a lista de publicações cadastradas no sistema. 
+#### Parâmetros:  
+search: O usuário pode pesquisar por publicações relacionadas ao que deseja. 
+```
+{
+  "search": "project dog"
+}
+```
+#### Resposta:  
+Ok! 200 
+
+Exemplo de resposta:  
+```
+[ 
+  { 
+    id: 1, 
+    title: “Exemple”, 
+    body”: “Empresas interessadas para pasceria com um processo que envolve mobilidade urbana chame por esse e-mail para discutir sobre o assunto.”, 
+    user_id: 1 
+  }, 
+  { 
+    id: 2, 
+    title: “exemple”, 
+    body: “exemple”, 
+    user_id: 2 
+  } 
+] 
+```
+### Get / project/{id}
+Esse endpoint por retornar uma publicação cadastrada no sistema. 
+#### Parâmetros:  
+id: id referente ao projeto
+#### Resposta:  
+Ok! 200 
+
+Exemplo de resposta:  
+```
+{ 
+  id: 1, 
+  title: “Exemple”, 
+  body”: “Empresas interessadas para pasceria com um processo que envolve mobilidade urbana chame por esse e-mail para discutir sobre o assunto.”, 
+  user_id: 1 
+}
+```
+### Post / project 
+Esse endpoint é responsável por criar uma publicação no sistema. 
+####Parâmetros: 
+title: título da publicação. 
+body: descrição sobre o projeto que o usuário deseja trabalhar e o que ele quer que os patrocinadores façam. 
+user_id: refere-se ao usuário que deseja usar essas informações de localização para si mesmo. 
+```
+{
+  "title": "project dog",
+  "body": "example",
+  "user_id": 2
+}
+```
+#### Resposta: 
+Nenhum conteúdo! 204 
+
+### Put / publication/{id} 
+Esse endpoint é responsável por atualizar os dados da publicação. 
+#### Parâmetros: 
+Id: identificador da publicação a ser atualizada. 
+title: novo título da publicação (opcional). 
+body: nova descrição da publicação (opcional). 
+```
+{
+  "title": "project dogs",
+  "body": "example"
+}
+```
+#### Resposta: 
+Ok! 200 
+
+Exemplo de resposta: 
+```
+{ 
+  response: “successfully update” 
+} 
+```
+### Delete / project/{id} 
+Esse endpoint é reponsável por deletar uma publicação do sistema. 
+#### Parâmetros: 
+Id: identificador da publicação a ser excluída. 
+#### Resposta: 
+Ok! 200 
 
 Exemplo de resposta: 
 ```
