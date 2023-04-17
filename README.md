@@ -223,7 +223,7 @@ O sistema detecta um erro ao tentar atualizar a senha do usuário.
 ![NewPost](https://user-images.githubusercontent.com/81191099/230791565-7e8c3963-b358-476e-b107-b8ddd6e89b3f.png)
 ## Editar Publicação:
 ![Edit](https://user-images.githubusercontent.com/81191099/230792841-529373f5-80d0-4bfc-b6af-1ad59dc2e801.png)
-##Tela de Pesquisa:
+## Tela de Pesquisa:
 ![Pesquisarrr](https://user-images.githubusercontent.com/81191099/232356678-8ceab127-3f3d-4f7c-b1eb-e81fa573a7af.png)
 ## Configurações:
 ![Config](https://user-images.githubusercontent.com/81191099/230792882-ed1ff611-6d2a-4aed-b58b-bbee88e84de8.png)
