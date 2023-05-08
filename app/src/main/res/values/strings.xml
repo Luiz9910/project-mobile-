@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">listview</string>
+    <string name="addPerson">Add Person</string>
+    <string name="name">Name</string>
+    <string name="phone">Phone Number</string>
+    <string name="details">Detalhes: </string>
+    <string name="hobby">Hobby</string>
+    <string name="height">Height</string>
+    <string name="weight">Weight</string>
+    <string name="phone_error">The field phone canot be empty!</string>
+    <string name="name_error">The field name canot be empty!</string>
+</resources>
