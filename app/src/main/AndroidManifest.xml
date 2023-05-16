@@ -21,7 +21,7 @@
             android:name=".tela3"
             android:exported="false" />
         <activity
-            android:name=".tela2"
+            android:name=".Register"
             android:exported="false" />
         <activity
             android:name=".MainActivity"

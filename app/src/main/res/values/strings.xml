@@ -10,27 +10,16 @@
 
     //tela2
     <string name="titulo_principal2">Crie sua conta</string>
-    <string name="nome_completo1">Nome Completo *</string>
+    <string name="nome_completo1">Nome Completo</string>
     <string name="hint_NomeCompleto2">Digite seu nome</string>
-    <string name="e_mail">E-mail *</string>
+    <string name="e_mail">E-mail</string>
     <string name="hint_Email2">Digite seu E-mail</string>
-    <string name="senha">Senha *</string>
+    <string name="senha">Senha</string>
     <string name="hint_Senha2">Digite sua senha</string>
 
     <string name="empresa">Empresa</string>
     <string name="Pessoa_fisica">Pessoa Física</string>
-    <string name="continuar">Continuar</string>
-
-
-    //tela3
-    <string name="pais1">País</string>
-    <string name="pais2">Digite seu País</string>
-    <string name="estado1">Estado</string>
-    <string name="estado2">Digite seu estado</string>
-    <string name="cidade1">Cidade</string>
-    <string name="cidade2">Digite sua Cidade</string>
-    <string name="cadastrar">Cadastrar</string>
-
+    <string name="cadastrar">cadastre-se</string>
 
     //tela4
     <string name="editar_perfil">EDITAR PERFIL</string>
