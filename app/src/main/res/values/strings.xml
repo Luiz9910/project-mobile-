@@ -21,9 +21,13 @@
     <string name="Pessoa_fisica">Pessoa Física</string>
     <string name="cadastrar">cadastre-se</string>
 
+    //tela3
+    <string name="titulo_tela3">NOVA PUBLICAÇÃO</string>
+    <string name="nome_usuário_post">Usuário1</string>
+    
     //tela4
     <string name="editar_perfil">EDITAR PERFIL</string>
-    <string name="nome_so_usuario">Nome do Usuário</string>
+    <string name="nome_do_usuario">Nome do Usuário</string>
     <string name="descricao">descrição do usuário</string>
     <string name="localizacao">Localização</string>
     <string name="posts">POSTS</string>

@@ -97,33 +97,36 @@
             android:layout_marginStart="20dp"
             android:layout_marginEnd="20dp" />
 
-        <TextView
-            android:id="@+id/textView1"
-            android:layout_width="126dp"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="25dp"
-            android:layout_marginTop="35dp"
-            android:drawableRight="@drawable/ic_box"
-            android:gravity="left"
-            android:text="@string/empresa"
-            android:textColor="@color/black"
-            android:textStyle="bold"
+            <RadioGroup
+                android:id="@+id/radioGroup"
+                android:layout_width="139dp"
+                android:layout_height="105dp"
+                android:layout_marginLeft="25dp"
+                android:layout_marginTop="10dp">
 
-            />
 
-        <TextView
-            android:id="@+id/textView2"
-            android:layout_width="127dp"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="25dp"
-            android:layout_marginTop="5dp"
-            android:drawableRight="@drawable/ic_box"
-            android:gravity="left"
-            android:text="@string/Pessoa_fisica"
-            android:textColor="@color/black"
-            android:textStyle="bold"
+                <RadioButton
+                    android:id="@+id/radioButton"
+                    android:layout_width="match_parent"
+                    android:layout_height="30dp"
+                    android:layout_marginTop="35dp"
+                    android:gravity="left"
+                    android:text="@string/empresa"
+                    android:textColor="@color/black"
+                    android:textStyle="bold" />
 
-            />
+                <RadioButton
+                    android:id="@+id/radioButton"
+                    android:layout_width="match_parent"
+                    android:layout_height="34dp"
+                    android:layout_marginTop="5dp"
+                    android:gravity="left"
+                    android:text="@string/Pessoa_fisica"
+                    android:textColor="@color/black"
+                    android:textStyle="bold"
+
+                    />
+            </RadioGroup>
 
         <Button
             android:id="@+id/register"

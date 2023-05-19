@@ -3,6 +3,8 @@ package com.example.projetofaculdademobile2
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.widget.RadioButton
+import android.widget.RadioGroup
 import android.widget.Toast
 import com.example.projetofaculdademobile2.databinding.ActivityMainBinding
 import com.example.projetofaculdademobile2.databinding.ActivityRegisterBinding
@@ -41,5 +43,17 @@ class Register : AppCompatActivity() {
                 startActivity(toLogin)
             }
         }
+    }
+    val radioGroup: RadioGroup = findViewById(R.id.radioGroup)
+    var radioButtonSelected: RadioButton? = null
+
+    binding.radioGroup.setOnCheckedChangeListener { checkedId ->
+        radioButtonSelected = findViewById(checkedId)
+    }
+
+// Exibir o RadioButton selecionado em algum lugar, por exemplo, ao clicar em um botão:
+    button.setOnClickListener {
+        val selectedOption = radioButtonSelected?.text.toString()
+        txtProfile.text = "Opção selecionada: $selectedOption"
     }
 }

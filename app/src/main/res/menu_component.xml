@@ -1,0 +1,9 @@
+<menu>
+    <item
+        android:id="@+id/menu_item1"
+        android:title="Menu Item 1" />
+    <item
+        android:id="@+id/menu_item2"
+        android:title="Menu Item 2" />
+    <!-- Adicione mais itens de menu conforme necessário -->
+</menu>
