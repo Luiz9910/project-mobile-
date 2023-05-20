@@ -244,10 +244,10 @@
         tools:layout_editor_absoluteX="0dp"
         tools:layout_editor_absoluteY="680dp">
 
-        <!-- Outros elementos ou layouts que você deseja exibir antes do componente de menu -->
+
     <include layout="@layout/menu_component" />
 
-        <!-- Outros elementos ou layouts que você deseja exibir após o componente de menu -->
+
 
     </LinearLayout>
 
