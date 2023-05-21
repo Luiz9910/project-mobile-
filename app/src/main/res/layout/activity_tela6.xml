@@ -112,9 +112,6 @@
             android:textColor="@color/white"
             android:textSize="24dp" />
 
-
-
-
         <FrameLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -124,12 +121,6 @@
 
             <include layout="@layout/menu_component" />
 
-        </FrameLayout>
-
+            </FrameLayout>
     </FrameLayout>
-
-
-
-
 </LinearLayout>
-

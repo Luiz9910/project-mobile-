@@ -1,8 +1,11 @@
 package com.example.projetofaculdademobile2
 
+import android.annotation.SuppressLint
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.example.projetofaculdademobile2.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
@@ -40,6 +43,18 @@ class MainActivity : AppCompatActivity() {
 
                 startActivity(navigationFeed)
             }
+        }
+    }  class MainActivity : AppCompatActivity() {
+        private lateinit var recyclerView: RecyclerView
+
+        @SuppressLint("MissingInflatedId")
+        override fun onCreate(savedInstanceState: Bundle?) {
+            super.onCreate(savedInstanceState)
+            setContentView(R.layout.activity_main)
+
+            recyclerView = findViewById(R.id.recyclerView)
+
+            // Restante do código da atividade...
         }
     }
 
