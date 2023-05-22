@@ -1,6 +1,7 @@
 # Descrição do sistema:
-
-O aplicativo que estamos desenvolvendo é uma rede social única que conecta empresários e iniciantes empreendedores a investidores e especialistas. A ideia por trás do aplicativo é permitir que os usuários compartilhem ideias sobre empresas, produtos e serviços em um feed, e obtenham aprovação, críticas e elogios dos investidores.
+   
+    
+O aplicativo que estamos desenvolvendo é uma rede social única que conecta empresários e iniciantes empreendedores,investidores, microempreendedores e especialistas. A ideia por trás do aplicativo é permitir que os usuários compartilhem ideias sobre empresas, produtos e serviços em um feed, e obtenham aprovação, críticas e elogios dos investidores.
 
 Com este aplicativo, os usuários poderão compartilhar suas ideias sobre negócios e empreendedorismo com uma comunidade engajada e especializada, a fim de obter feedback construtivo. Os investidores terão a oportunidade de avaliar as ideias em tempo real e fornecer feedback valioso para os usuários, ajudando-os a ajustar seus conceitos e aprimorar suas ideias de negócios.
 
