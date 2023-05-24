@@ -1,21 +1,18 @@
 <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_margin="4dp"
-    app:cardCornerRadius="8dp"
-    app:cardElevation="4dp">
+    android:layout_margin="6dp"
+    android:layout_marginTop="10dp"
+    android:background="@drawable/border_shandow"
+    >
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="8dp"
-        android:paddingTop="8dp"
-        android:paddingBottom="8dp"
-        android:background="@drawable/rounded_background"
         android:orientation="vertical"
-        android:layout_marginTop="0dp"
-        android:layout_marginBottom="10dp">
+        android:padding="10dp"
+        android:background="@color/white"
+    >
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -33,6 +30,7 @@
                 android:id="@+id/title"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:textColor="@color/black"
                 android:text="Título" />
 
         </LinearLayout>
@@ -42,19 +40,14 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="5dp"
+            android:textColor="@color/black"
             android:text="Descrição" />
-
-        <androidx.appcompat.widget.AppCompatTextView
-            android:id="@+id/nameUser"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="5dp"
-            android:text="Nome do Usuário" />
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
+            android:layout_marginTop="10dp"
             android:gravity="center_vertical">
 
             <ImageView
@@ -73,7 +66,5 @@
                 android:src="@drawable/like" />
 
         </LinearLayout>
-
     </LinearLayout>
-
 </androidx.cardview.widget.CardView>
