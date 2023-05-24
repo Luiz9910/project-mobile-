@@ -36,7 +36,7 @@ class MainActivity : AppCompatActivity() {
                 return@setOnClickListener
             }
 
-            val navigationFeed = Intent(this, Feed::class.java)
+            val navigationFeed = Intent(this, Menu::class.java)
             startActivity(navigationFeed)
         }
 

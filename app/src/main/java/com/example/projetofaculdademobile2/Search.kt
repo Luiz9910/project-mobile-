@@ -3,9 +3,9 @@ package com.example.projetofaculdademobile2
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 
-class Publication : AppCompatActivity() {
+class Search : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_publication)
+        setContentView(R.layout.activity_search)
     }
 }

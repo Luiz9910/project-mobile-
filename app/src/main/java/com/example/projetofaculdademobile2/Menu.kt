@@ -3,7 +3,6 @@ package com.example.projetofaculdademobile2
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import com.example.projetofaculdademobile2.databinding.ActivityMainBinding
 import com.example.projetofaculdademobile2.databinding.ActivityMenuBinding
 
 class Menu : AppCompatActivity() {
@@ -25,7 +24,7 @@ class Menu : AppCompatActivity() {
         }
 
         binding.toPostMenu.setOnClickListener {
-            var toPost = Intent(this, Publication::class.java)
+            var toPost = Intent(this, PostProject::class.java)
             startActivity(toPost)
         }
 
@@ -33,6 +32,10 @@ class Menu : AppCompatActivity() {
             var toEditPublication = Intent(this, EditProject::class.java)
             startActivity(toEditPublication)
         }
+
+        binding.toConfigurationMenu.setOnClickListener {
+            var toEditPublication = Intent(this, Search::class.java)
+            startActivity(toEditPublication)
+        }
     }
 }
-
