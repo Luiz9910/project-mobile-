@@ -3,9 +3,9 @@ package com.example.projetofaculdademobile2
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 
-class tela5 : AppCompatActivity() {
+class Publication : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_tela5)
+        setContentView(R.layout.activity_publication)
     }
 }

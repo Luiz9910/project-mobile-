@@ -1,14 +1,14 @@
 <resources>
     <string name="app_name">ProjetoFaculdade</string>
-    <string name="titulo_principal">Community Aid</string>
+    <string name="nameProject">Community Aid</string>
     <string name="hint_email">Email</string>
-    <string name="hint_senha">Senha</string>
-    <string name="txt_button_entrar">Entrar</string>
+    <string name="hint_password">Senha</string>
+    <string name="txt_button_enter">Entrar</string>
     <string name="txt_esqueceu_a_senha">Esqueceu a senha?</string>
-    <string name="txt_nao_tem_conta"> <font color="#FF000000">Não tem conta?</font> <font color="#4E10DA">Crie sua conta agora!</font></string>
+    <string name="txt_buttonToRegister"> <font color="#FF000000">Não tem conta?</font> <font color="#4E10DA">Crie sua conta agora!</font></string>
 
 
-    //tela2
+    //Register
     <string name="titulo_principal2">Crie sua conta</string>
     <string name="nome_completo1">Nome Completo</string>
     <string name="hint_NomeCompleto2">Digite seu nome</string>
@@ -21,13 +21,9 @@
     <string name="Pessoa_fisica">Pessoa Física</string>
     <string name="cadastrar">cadastre-se</string>
 
-    //tela3
-    <string name="titulo_Newpost">NOVA PUBLICAÇÃO</string>
-    <string name="nome_usuário_post">Usuário1</string>
-    
-    //tela4
+    //Profile
     <string name="editar_perfil">EDITAR PERFIL</string>
-    <string name="nome_do_usuario">Nome do Usuário</string>
+    <string name="nome_so_usuario">Nome do Usuário</string>
     <string name="descricao">descrição do usuário</string>
     <string name="localizacao">Localização</string>
     <string name="posts">POSTS</string>
@@ -37,25 +33,13 @@
     <string name="number3">3</string>
     <string name="texto2">Boa Noite! Estamos com novos planos para ajudar os mais necessitados no municipio</string>
 
-    //tela5
-    <string name="titulo_pricipal">Nova Publicação</string>
-    <string name="titulo_secundario"> usuário1</string>
-    <string name="hint_tituloo">Titulo de Publicação</string>
-    <string name="hintt_Publicação">Começar Publicação</string>
-    <string name="hint_Publicar">Publicar</string>
-    <string name="tittulo_foto">Foto</string>
-    <string name="content_post">Conteudo Post</string>
+    //EditProject
+    <string name="TitleEditProject">Editar Projeto</string>
+    <string name="nameUserProfile">Nome do Usuário</string>
+    <string name="title">Título</string>
+    <string name="description">Descrição</string>
+    <string name="edit">Editar</string>
 
-    //Tela6
-    <string name="titulo_pricipal">Editar Publicação</string>
-    <string name="titulo_secundario"> usuário1</string>
-    <string name="hint_titulo">Titulo de Publicação</string>
-    <string name="hint_Publicação">Começar Publicação</string>
-    <string name="hint_Editar">Editar</string>
-    <string name="titulo_foto">Foto</string>
-
-
-
-
-
+    <string name="textPublicationProject">Publicar Projeto</string>
+    <string name="textButtonPublication">Publicar</string>
 </resources>

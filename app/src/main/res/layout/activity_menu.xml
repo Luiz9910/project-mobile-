@@ -2,10 +2,10 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="410dp"
     android:layout_height="60dp"
-    android:background="@drawable/border_shadow">
+    android:background="@drawable/border_shandow">
 
     <TextView
-        android:id="@+id/textView17"
+        android:id="@+id/toFeedMenu"
         android:layout_width="36dp"
         android:layout_height="36dp"
         android:layout_marginLeft="20dp"
@@ -13,7 +13,7 @@
         android:drawableLeft="@drawable/ic_home" />
 
     <TextView
-        android:id="@+id/textView18"
+        android:id="@+id/toSearchMenu"
         android:layout_width="36dp"
         android:layout_height="36dp"
         android:drawableLeft="@drawable/ic_search"
@@ -21,7 +21,7 @@
         android:layout_marginTop="10dp"/>
 
     <TextView
-        android:id="@+id/textView19"
+        android:id="@+id/toPostMenu"
         android:layout_width="36dp"
         android:layout_height="36dp"
         android:drawableLeft="@drawable/ic_add"
@@ -29,7 +29,7 @@
         android:layout_marginLeft="40dp"/>
 
     <TextView
-        android:id="@+id/textView21"
+        android:id="@+id/toConfigurationMenu"
         android:layout_width="wrap_content"
         android:layout_height="46dp"
         android:drawableLeft="@drawable/ic_config"
@@ -37,7 +37,7 @@
         android:layout_marginLeft="40dp"/>
 
     <TextView
-        android:id="@+id/textView20"
+        android:id="@+id/toProfileMenu"
         android:layout_width="36dp"
         android:layout_height="36dp"
         android:drawableLeft="@drawable/ic_user"

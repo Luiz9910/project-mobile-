@@ -1,26 +1,37 @@
 package com.example.projetofaculdademobile2
 
-import android.os.Bundle
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
-import android.widget.LinearLayout
-import android.view.LayoutInflater
-import android.view.View
-import android.widget.Button
-
+import android.os.Bundle
+import com.example.projetofaculdademobile2.databinding.ActivityMainBinding
+import com.example.projetofaculdademobile2.databinding.ActivityMenuBinding
 
 class Menu : AppCompatActivity() {
+    private lateinit var binding: ActivityMenuBinding
     override fun onCreate(savedInstanceState: Bundle?) {
+
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.menu_component)
+        binding = ActivityMenuBinding.inflate(layoutInflater)
+        setContentView(binding.root)
 
-        val container: LinearLayout = findViewById(R.id.menu_container)
+        binding.toProfileMenu.setOnClickListener {
+            val toProfile = Intent(this, Profile::class.java)
+            startActivity(toProfile)
+        }
 
-        val inflater = LayoutInflater.from(this)
-        val menuView: View = inflater.inflate(R.layout.menu_component, container, true)
+        binding.toFeedMenu.setOnClickListener {
+            var toFeed = Intent(this, Feed::class.java)
+            startActivity(toFeed)
+        }
 
-        val btnMenu: Button = menuView.findViewById(R.id.btn_menu)
-        btnMenu.setOnClickListener {
-            // Ação quando o botão do menu for clicado
+        binding.toPostMenu.setOnClickListener {
+            var toPost = Intent(this, Publication::class.java)
+            startActivity(toPost)
+        }
+
+        binding.toSearchMenu.setOnClickListener {
+            var toEditPublication = Intent(this, EditProject::class.java)
+            startActivity(toEditPublication)
         }
     }
 }

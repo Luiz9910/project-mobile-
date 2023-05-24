@@ -25,10 +25,20 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:layout_marginTop="30dp"
-            android:text="@string/titulo_principal"
+            android:text="@string/nameProject"
             android:textColor="@color/blue"
             android:textSize="40sp"
             android:textStyle="bold" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="30dp"
+            android:layout_marginTop="30dp"
+            android:text="@string/e_mail"
+            android:textColor="@color/black"
+            android:textSize="20sp"
+            />
 
         <EditText
             android:id="@+id/edit_email"
@@ -40,21 +50,31 @@
             android:padding="15dp"
             android:background="@drawable/background_edittext"
             android:textColor="@color/black"
-            android:layout_marginTop="50dp"
             android:layout_marginStart="20dp"
             android:layout_marginEnd="20dp" />
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="30dp"
+            android:layout_marginTop="10dp"
+            android:text="@string/senha"
+            android:textColor="@color/black"
+            android:textSize="20sp"
+            android:textStyle="normal" />
+
 
         <EditText
             android:id="@+id/editSenha"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="@string/hint_senha"
+            android:hint="@string/hint_password"
             android:inputType="textPassword"
             android:textSize="18sp"
             android:padding="15dp"
             android:background="@drawable/background_edittext"
             android:textColor="@color/black"
-            android:layout_marginTop="20dp"
             android:layout_marginStart="20dp"
             android:layout_marginEnd="20dp"
             android:layout_marginBottom="30dp"/>
@@ -68,7 +88,7 @@
             android:layout_marginTop="40dp"
             android:layout_marginEnd="70dp"
             android:backgroundTint="@color/blue"
-            android:text="@string/txt_button_entrar"
+            android:text="@string/txt_button_enter"
             android:textAllCaps="false"
             android:textColor="@color/white"
             android:textSize="23sp" />
@@ -77,13 +97,11 @@
             android:id="@+id/loginToRegister"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/txt_nao_tem_conta"
+            android:text="@string/txt_buttonToRegister"
             android:textStyle="bold"
             android:gravity="center"
             android:layout_marginTop="30dp"
             android:textSize="17sp"
             />
-
-
     </LinearLayout>
 </ScrollView>
