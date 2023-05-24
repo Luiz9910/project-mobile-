@@ -12,7 +12,6 @@ class PersonDetailsViewHolder(private val listItemDetailsBinding: ListItemDetail
         person?.let { it ->
             listItemDetailsBinding.title.text = it.title
             listItemDetailsBinding.description.text = it.description
-            listItemDetailsBinding.nameUser.text = it.nameUser
         }
     }
 }
