@@ -12,30 +12,5 @@ class Menu : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityMenuBinding.inflate(layoutInflater)
         setContentView(binding.root)
-
-        binding.toProfileMenu.setOnClickListener {
-            val toProfile = Intent(this, Profile::class.java)
-            startActivity(toProfile)
-        }
-
-        binding.toFeedMenu.setOnClickListener {
-            var toFeed = Intent(this, Feed::class.java)
-            startActivity(toFeed)
-        }
-
-        binding.toPostMenu.setOnClickListener {
-            var toPost = Intent(this, PostProject::class.java)
-            startActivity(toPost)
-        }
-
-        binding.toSearchMenu.setOnClickListener {
-            var toEditPublication = Intent(this, EditProject::class.java)
-            startActivity(toEditPublication)
-        }
-
-        binding.toConfigurationMenu.setOnClickListener {
-            var toEditPublication = Intent(this, Search::class.java)
-            startActivity(toEditPublication)
-        }
     }
 }

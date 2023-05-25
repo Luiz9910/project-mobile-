@@ -1,4 +1,4 @@
-package com.example.projetofaculdademobile2
+package com.example.projetofaculdademobile2.ListProjectFeed
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
@@ -17,8 +17,8 @@ import com.example.projetofaculdademobile2.databinding.ListItemDetailsBinding
  * Dica: Será necessário fazer o override da função getItemViewType para identificar
  * a view que contem os detalhes
  */
-class PersonRecyclerViewAdapter(
-    private val persons: ArrayList<Person>
+class ProjectPostRecyclerViewAdapter(
+    private val persons: ArrayList<ProjectPost>
 ) : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 
     /**
@@ -26,7 +26,7 @@ class PersonRecyclerViewAdapter(
      */
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
         val listItemDetailsBinding = ListItemDetailsBinding.inflate(LayoutInflater.from(parent.context), parent, false)
-        return PersonDetailsViewHolder(listItemDetailsBinding)
+        return ProjectDetailsViewHolder(listItemDetailsBinding)
     }
 
     override fun getItemViewType(position: Int): Int =
@@ -41,6 +41,6 @@ class PersonRecyclerViewAdapter(
      * carrega os elementos da lista
      */
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
-        (holder as? PersonDetailsViewHolder)?.bind(persons[position])
+        (holder as? ProjectDetailsViewHolder)?.bind(persons[position])
     }
 }

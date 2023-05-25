@@ -1,47 +1,60 @@
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="410dp"
-    android:layout_height="60dp"
-    android:background="@drawable/border_shandow">
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
 
-    <TextView
-        android:id="@+id/toFeedMenu"
-        android:layout_width="36dp"
-        android:layout_height="36dp"
-        android:layout_marginLeft="20dp"
-        android:layout_marginTop="10dp"
-        android:drawableLeft="@drawable/ic_home" />
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/border_shandow"
+        app:layout_constraintBottom_toBottomOf="parent">
 
-    <TextView
-        android:id="@+id/toSearchMenu"
-        android:layout_width="36dp"
-        android:layout_height="36dp"
-        android:drawableLeft="@drawable/ic_search"
-        android:layout_marginLeft="40dp"
-        android:layout_marginTop="10dp"/>
+        <LinearLayout
+            xmlns:android="http://schemas.android.com/apk/res/android"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:background="@drawable/border_shandow">
 
-    <TextView
-        android:id="@+id/toPostMenu"
-        android:layout_width="36dp"
-        android:layout_height="36dp"
-        android:drawableLeft="@drawable/ic_add"
-        android:layout_marginTop="10dp"
-        android:layout_marginLeft="40dp"/>
+            <TextView
+                android:id="@+id/toFeedMenu"
+                android:layout_width="36dp"
+                android:layout_height="36dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="10dp"
+                android:drawableLeft="@drawable/ic_home" />
 
-    <TextView
-        android:id="@+id/toConfigurationMenu"
-        android:layout_width="wrap_content"
-        android:layout_height="46dp"
-        android:drawableLeft="@drawable/ic_config"
-        android:layout_marginTop="5dp"
-        android:layout_marginLeft="40dp"/>
+            <TextView
+                android:id="@+id/toSearchMenu"
+                android:layout_width="36dp"
+                android:layout_height="36dp"
+                android:drawableLeft="@drawable/ic_search"
+                android:layout_marginLeft="40dp"
+                android:layout_marginTop="10dp"/>
 
-    <TextView
-        android:id="@+id/toProfileMenu"
-        android:layout_width="36dp"
-        android:layout_height="36dp"
-        android:drawableLeft="@drawable/ic_user"
-        android:layout_marginLeft="50dp"
-        android:layout_marginTop="10dp"/>
+            <TextView
+                android:id="@+id/toPostMenu"
+                android:layout_width="36dp"
+                android:layout_height="36dp"
+                android:drawableLeft="@drawable/ic_add"
+                android:layout_marginTop="10dp"
+                android:layout_marginLeft="40dp"/>
 
-</LinearLayout>
+            <TextView
+                android:id="@+id/toConfigurationMenu"
+                android:layout_width="wrap_content"
+                android:layout_height="46dp"
+                android:drawableLeft="@drawable/ic_config"
+                android:layout_marginTop="5dp"
+                android:layout_marginLeft="40dp"/>
+
+            <TextView
+                android:id="@+id/toProfileMenu"
+                android:layout_width="36dp"
+                android:layout_height="36dp"
+                android:drawableLeft="@drawable/ic_user"
+                android:layout_marginLeft="50dp"
+                android:layout_marginTop="10dp"/>
+
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+</androidx.constraintlayout.widget.ConstraintLayout>
