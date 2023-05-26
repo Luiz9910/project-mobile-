@@ -1,18 +1,16 @@
 <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_margin="6dp"
-    android:layout_marginTop="10dp"
+    android:layout_margin="7dp"
     android:background="@drawable/border_shandow"
     >
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:padding="10dp"
         android:background="@color/white"
-    >
+        android:orientation="vertical"
+        android:padding="10dp">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -28,11 +26,26 @@
 
             <androidx.appcompat.widget.AppCompatTextView
                 android:id="@+id/title"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:textColor="@color/black"
-                android:text="Título" />
+                android:layout_width="265dp"
+                android:layout_height="match_parent"
+                android:layout_marginRight="20dp"
+                android:text="Título"
+                android:textColor="@color/black" />
 
+
+            <ImageView
+                android:id="@+id/DeleteProfileList"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_trash" />
+
+
+            <ImageView
+                android:id="@+id/editProfileList"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:src="@drawable/ic_edit" />
         </LinearLayout>
 
         <androidx.appcompat.widget.AppCompatTextView
@@ -40,15 +53,15 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="5dp"
-            android:textColor="@color/black"
-            android:text="Descrição" />
+            android:text="Descrição"
+            android:textColor="@color/black" />
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
             android:layout_marginTop="10dp"
-            android:gravity="center_vertical">
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
 
             <ImageView
                 android:layout_width="53px"
