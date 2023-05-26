@@ -23,22 +23,10 @@
         tools:itemCount="100"
         tools:layoutManager="GridLayoutManager"
         tools:listitem="@layout/list_item_details"
-        android:layout_marginBottom="63dp"
-        tools:spanCount="2" />
+        android:layout_marginBottom="63dp" />
 
-    <FrameLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
-
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_marginTop="335dp"
-            android:layout_marginStart="0dp">
-
-            <include layout="@layout/activity_menu" />
-        </LinearLayout>
-    </FrameLayout>
+    <include
+        android:id="@+id/tabBar"
+        layout="@layout/activity_menu" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

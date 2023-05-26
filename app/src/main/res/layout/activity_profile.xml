@@ -76,35 +76,16 @@
         android:layout_marginStart="20dp"
         android:layout_marginTop="280dp"
         android:layout_marginEnd="20dp"
-        android:layout_marginBottom="65dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView4"
         tools:itemCount="100"
         tools:layoutManager="GridLayoutManager"
-        tools:listitem="@layout/list_item_details"
-        tools:spanCount="2" />
+        tools:listitem="@layout/list_item_details" />
 
-    <FrameLayout
-        android:id="@+id/frameLayout"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
-
-        <FrameLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
-
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:layout_marginStart="0dp"
-                android:layout_marginTop="335dp">
-
-                <include layout="@layout/activity_menu" />
-            </LinearLayout>
-        </FrameLayout>
-    </FrameLayout>
+    <include
+        android:id="@+id/tabBar"
+        layout="@layout/activity_menu" />
 
 </RelativeLayout>

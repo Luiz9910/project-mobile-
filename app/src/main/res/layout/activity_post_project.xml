@@ -102,29 +102,23 @@
             android:textStyle="bold"/>
 
         <Button
-            android:id="@+id/register"
+            android:id="@+id/publicationProjct"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="70dp"
             android:layout_marginTop="500dp"
             android:layout_marginEnd="70dp"
             android:backgroundTint="@color/blue"
-            android:padding="3dp"
+            android:padding="10dp"
             android:text="@string/textButtonPublication"
             android:textAllCaps="false"
             android:textColor="@color/white"
             android:textSize="24dp" />
 
 
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_marginTop="291dp"
-            android:layout_marginStart="0dp">
 
-            <include layout="@layout/activity_menu" />
-
-        </LinearLayout>
+        <include
+            android:id="@+id/tabBar"
+            layout="@layout/activity_menu" />
     </FrameLayout>
 </LinearLayout>
