@@ -70,7 +70,7 @@
         android:textStyle="bold"/>
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/listViewPersons"
+        android:id="@+id/lisItemProfileUserView"
         android:layout_width="367dp"
         android:layout_height="397dp"
         android:layout_marginStart="20dp"
@@ -82,7 +82,7 @@
         app:layout_constraintTop_toBottomOf="@+id/textView4"
         tools:itemCount="100"
         tools:layoutManager="GridLayoutManager"
-        tools:listitem="@layout/list_item_details" />
+        tools:listitem="@layout/list_item_post_user_project_profile" />
 
     <include
         android:id="@+id/tabBar"

@@ -49,7 +49,7 @@
         app:layout_constraintVertical_bias="0.0"
         tools:itemCount="100"
         tools:layoutManager="GridLayoutManager"
-        tools:listitem="@layout/list_item_details" />
+        tools:listitem="@layout/list_item_post_project" />
 
     <include
         android:id="@+id/tabBar"
