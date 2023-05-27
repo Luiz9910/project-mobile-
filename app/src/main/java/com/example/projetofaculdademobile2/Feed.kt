@@ -52,7 +52,7 @@ class Feed : AppCompatActivity() {
     }
 
     private fun createInitialDataSet(): ArrayList<ProjectPost> = arrayListOf(
-        ProjectPost("Athletes", "2fjsdnfisdnfionsdiofndsiofnsdifisdonfiosdhnfiosdhfisdmifmsdifmsdif"),
+        ProjectPost("Athletes", "luizluizluizluizluizluizluizluizluizluizluizluizluizluizluizluizluiz"),
         ProjectPost("Community", "2fjsdnfisdnfionsdiofndsiofnsdifisdonfiosdhnfiosdhfisdmifmsdifmsdif"),
         ProjectPost("Athletes", "2fjsdnfisdnfionsdiofndsiofnsdifisdonfiosdhnfiosdhfisdmifmsdifmsdif"),
         ProjectPost("Community", "2fjsdnfisdnfionsdiofndsiofnsdifisdonfiosdhnfiosdhfisdmifmsdifmsdif"),
