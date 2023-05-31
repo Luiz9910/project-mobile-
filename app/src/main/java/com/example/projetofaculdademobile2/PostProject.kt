@@ -28,5 +28,10 @@ class PostProject : AppCompatActivity() {
             val toProfile = Intent(this, Profile::class.java)
             startActivity(toProfile)
         }
+
+        binding.tabBar.toLogout.setOnClickListener {
+            val toLogout = Intent(this, MainActivity::class.java)
+            startActivity(toLogout)
+        }
     }
 }

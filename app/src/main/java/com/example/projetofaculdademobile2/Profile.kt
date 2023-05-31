@@ -1,14 +1,11 @@
 package com.example.projetofaculdademobile2
 
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.GridLayoutManager
-import com.example.projetofaculdademobile2.ListProjectFeed.ProjectPost
-import com.example.projetofaculdademobile2.ListProjectFeed.ProjectPostRecyclerViewAdapter
 import com.example.projetofaculdademobile2.ListProjectProfile.ProjectProfilePost
 import com.example.projetofaculdademobile2.ListProjectProfile.ProjectProfilePostRecyclerViewAdapter
-import com.example.projetofaculdademobile2.databinding.ActivityPostProjectBinding
 import com.example.projetofaculdademobile2.databinding.ActivityProfileBinding
 
 class Profile : AppCompatActivity() {
@@ -33,6 +30,11 @@ class Profile : AppCompatActivity() {
         binding.tabBar.toPostMenu.setOnClickListener {
             var toPost = Intent(this, PostProject::class.java)
             startActivity(toPost)
+        }
+
+        binding.tabBar.toLogout.setOnClickListener {
+            val toLogout = Intent(this, MainActivity::class.java)
+            startActivity(toLogout)
         }
 
         fun createInitialDataSet(): ArrayList<ProjectProfilePost> = arrayListOf(
@@ -61,12 +63,6 @@ class Profile : AppCompatActivity() {
             binding.lisItemProfileUserView.layoutManager = gridLayoutManager
             binding.lisItemProfileUserView.adapter = adapter
         }
-
-
-        data class PersonOrError(
-            val error: Boolean,
-            val projectPost: ProjectPost
-        )
 
         setUpList()
     }

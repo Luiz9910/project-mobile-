@@ -4,7 +4,6 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.example.projetofaculdademobile2.databinding.ActivityEditProjectBinding
-import com.example.projetofaculdademobile2.databinding.ActivityFeedBinding
 
 class EditProject : AppCompatActivity() {
     private lateinit var binding: ActivityEditProjectBinding
@@ -32,6 +31,11 @@ class EditProject : AppCompatActivity() {
         binding.tabBar.toProfileMenu.setOnClickListener {
             val toProfile = Intent(this, Profile::class.java)
             startActivity(toProfile)
+        }
+
+        binding.tabBar.toLogout.setOnClickListener {
+            val toLogout = Intent(this, MainActivity::class.java)
+            startActivity(toLogout)
         }
     }
 }

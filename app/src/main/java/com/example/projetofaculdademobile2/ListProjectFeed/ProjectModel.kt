@@ -1,11 +1,10 @@
-package com.example.projetofaculdademobile2
+package com.example.projetofaculdademobile2.ListProjectFeed
 
 import android.os.Parcelable
-import com.google.gson.annotations.SerializedName
 import kotlinx.parcelize.Parcelize
 
 @Parcelize
-data class Repositorio(
+data class ProjectModel(
     val id: Int,
     val name: String,
     val description: String

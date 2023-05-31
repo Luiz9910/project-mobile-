@@ -1,13 +1,13 @@
 package com.example.projetofaculdademobile2
 
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
-import androidx.recyclerview.widget.GridLayoutManager
+import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.example.projetofaculdademobile2.ListProjectFeed.ProjectPost
-import com.example.projetofaculdademobile2.ListProjectFeed.ProjectPostRecyclerViewAdapter
+import com.example.projetofaculdademobile2.ListProjectFeed.FeedProjectsListAdapter
+import com.example.projetofaculdademobile2.ListProjectFeed.ProjectModel
+import com.example.projetofaculdademobile2.ListProjectFeed.ProjectService
 import com.example.projetofaculdademobile2.databinding.ActivityFeedBinding
 import retrofit2.Call
 import retrofit2.Callback
@@ -17,8 +17,8 @@ import retrofit2.converter.gson.GsonConverterFactory
 
 class Feed : AppCompatActivity() {
     private lateinit var binding: ActivityFeedBinding
-    private lateinit var repositorios: ArrayList<Repositorio>
-    private lateinit var adapter: RepositoryAdapter
+    private lateinit var projectModels: ArrayList<ProjectModel>
+    private lateinit var adapter: FeedProjectsListAdapter
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -28,6 +28,26 @@ class Feed : AppCompatActivity() {
         setUpList()
         binding.run {
             makeRequest()
+        }
+
+        binding.tabBar.toSearchMenu.setOnClickListener {
+            var toEditPublication = Intent(this, Search::class.java)
+            startActivity(toEditPublication)
+        }
+
+        binding.tabBar.toPostMenu.setOnClickListener {
+            var toPost = Intent(this, PostProject::class.java)
+            startActivity(toPost)
+        }
+
+        binding.tabBar.toProfileMenu.setOnClickListener {
+            val toProfile = Intent(this, Profile::class.java)
+            startActivity(toProfile)
+        }
+
+        binding.tabBar.toLogout.setOnClickListener {
+            val toLogout = Intent(this, MainActivity::class.java)
+            startActivity(toLogout)
         }
     }
 
@@ -53,23 +73,23 @@ class Feed : AppCompatActivity() {
             .addConverterFactory(GsonConverterFactory.create())
             .build()
         // create service using Interface that has the request methods
-        val service = instance.create(ApiService::class.java)
+        val service = instance.create(ProjectService::class.java)
         changeElementsVisibility(progressBarVisibility = View.VISIBLE)
         // build the call
-        val reponse: Call<List<Repositorio>> = service.listRepos("users")
+        val reponse: Call<List<ProjectModel>> = service.listRepos("users")
         // make the call
-        reponse.enqueue(object : Callback<List<Repositorio>> {
+        reponse.enqueue(object : Callback<List<ProjectModel>> {
 
             override fun onResponse(
-                call: Call<List<Repositorio>>,
-                response: Response<List<Repositorio>>
+                call: Call<List<ProjectModel>>,
+                response: Response<List<ProjectModel>>
             ) {
                 if (response.code() == 200) {
                     response.body()?.let {
                         if (it.isEmpty()) {
                             changeElementsVisibility(emptyMessageVisibility = View.VISIBLE)
                         } else {
-                            repositorios.addAll(it)
+                            projectModels.addAll(it)
                             adapter.notifyItemRangeChanged(0, it.size)
                             changeElementsVisibility(rvVisibilityMessageVisibility = View.VISIBLE)
                         }
@@ -80,7 +100,7 @@ class Feed : AppCompatActivity() {
             }
 
             override fun onFailure(
-                call: Call<List<Repositorio>>,
+                call: Call<List<ProjectModel>>,
                 t: Throwable
             ) {
                 t.printStackTrace()
@@ -91,9 +111,9 @@ class Feed : AppCompatActivity() {
     }
 
     private fun setUpList() {
-        repositorios = arrayListOf()
-        adapter = RepositoryAdapter(
-            repositorios
+        projectModels = arrayListOf()
+        adapter = FeedProjectsListAdapter(
+            projectModels
         )
         binding.rvRepositories.layoutManager = LinearLayoutManager(this)
         binding.rvRepositories.adapter = adapter
