@@ -6,6 +6,6 @@ import kotlinx.parcelize.Parcelize
 @Parcelize
 data class ProjectModel(
     val id: Int,
-    val name: String,
-    val description: String
+    val title: String,
+    val body: String
 ) : Parcelable

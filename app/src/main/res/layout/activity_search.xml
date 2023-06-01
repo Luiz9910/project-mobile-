@@ -19,14 +19,14 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_alignParentTop="true"
-            android:layout_toStartOf="@+id/icon"
+            android:layout_toStartOf="@+id/iconSearch"
             android:background="@drawable/background_edittext"
             android:hint="Digite aqui"
             android:padding="8dp"
             android:textColor="@color/black" />
 
         <ImageView
-            android:id="@+id/icon"
+            android:id="@+id/iconSearch"
             android:layout_width="48dp"
             android:layout_height="48dp"
             android:layout_alignParentTop="true"
@@ -34,22 +34,85 @@
             android:src="@drawable/ic_search" />
     </RelativeLayout>
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/listViewPersons"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_marginTop="80dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginEnd="16dp"
-        app:layout_constraintBottom_toBottomOf="parent"
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/welcomeMessage"
+        android:layout_width="367dp"
+        android:layout_height="match_parent"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/relativeLayout"
-        app:layout_constraintVertical_bias="0.0"
         tools:itemCount="100"
         tools:layoutManager="GridLayoutManager"
-        tools:listitem="@layout/list_item_post_project" />
+        android:text="@string/welcome_message"
+        android:textSize="24sp"
+        android:layout_marginTop="90dp"/>
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/erroMessage"
+        android:layout_width="367dp"
+        android:layout_height="397dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="280dp"
+        android:layout_marginEnd="20dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:itemCount="100"
+        tools:layoutManager="GridLayoutManager"
+        android:text="@string/error_message"
+        android:textSize="24sp"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/emptyMessage"
+        android:layout_margin="24dp"
+        android:text="@string/empty_message"
+        android:layout_width="367dp"
+        android:layout_height="397dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="280dp"
+        android:layout_marginEnd="20dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:itemCount="100"
+        tools:layoutManager="GridLayoutManager"
+        android:textSize="24sp"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ProgressBar
+        android:id="@+id/progressBar"
+        android:layout_width="367dp"
+        android:layout_height="397dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="280dp"
+        android:layout_marginEnd="20dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:itemCount="100"
+        tools:layoutManager="GridLayoutManager"
+        android:visibility="gone"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rvRepositories"
+        android:layout_width="367dp"
+        android:layout_height="match_parent"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="80dp"
+        android:layout_marginEnd="20dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:itemCount="100"
+        tools:layoutManager="GridLayoutManager"
+        android:visibility="gone"
+        tools:listitem="@layout/list_item_projects_feed"
+        tools:ignore="MissingConstraints" />
 
     <include
         android:id="@+id/tabBar"

@@ -69,14 +69,14 @@ class Feed : AppCompatActivity() {
     private fun makeRequest() {
         // create retrofit object
         val instance = Retrofit.Builder()
-            .baseUrl("http://192.168.0.116:8080/")
+            .baseUrl("http://192.168.244.201:8080/")
             .addConverterFactory(GsonConverterFactory.create())
             .build()
         // create service using Interface that has the request methods
         val service = instance.create(ProjectService::class.java)
         changeElementsVisibility(progressBarVisibility = View.VISIBLE)
         // build the call
-        val reponse: Call<List<ProjectModel>> = service.listRepos("users")
+        val reponse: Call<List<ProjectModel>> = service.listProject("projects")
         // make the call
         reponse.enqueue(object : Callback<List<ProjectModel>> {
 
