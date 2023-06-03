@@ -10,7 +10,6 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.projetofaculdademobile2.ListProjectFeed.FeedProjectsListAdapter
 import com.example.projetofaculdademobile2.ListProjectFeed.ProjectModel
 import com.example.projetofaculdademobile2.ListProjectFeed.ProjectService
-import com.example.projetofaculdademobile2.databinding.ActivityRegisterBinding
 import com.example.projetofaculdademobile2.databinding.ActivitySearchBinding
 import retrofit2.Call
 import retrofit2.Callback
@@ -26,7 +25,6 @@ class Search : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivitySearchBinding.inflate(layoutInflater)
         setContentView(binding.root)
-
 
         binding.tabBar.toFeedMenu.setOnClickListener {
             var toFeed = Intent(this, Feed::class.java)
@@ -74,21 +72,15 @@ class Search : AppCompatActivity() {
 
     private fun makeRequest(title: String) {
         // create retrofit object
-        Toast.makeText(this, title, Toast.LENGTH_SHORT).show()
-
         val instance = Retrofit.Builder()
-            .baseUrl("http://192.168.244.201:8080/")
+            .baseUrl("http://192.168.0.116:8080/")
             .addConverterFactory(GsonConverterFactory.create())
             .build()
         // create service using Interface that has the request methods
         val service = instance.create(ProjectService::class.java)
         changeElementsVisibility(progressBarVisibility = View.VISIBLE)
         // build the call
-        if (title.isEmpty()) {
-            val reponse: Call<List<ProjectModel>> = service.listProject("projects")
-        }
-
-        val reponse: Call<List<ProjectModel>> = service.listProject("projects/${title}")
+        val reponse: Call<List<ProjectModel>> = service.listSearchProject(title)
         // make the call
         reponse.enqueue(object : Callback<List<ProjectModel>> {
 

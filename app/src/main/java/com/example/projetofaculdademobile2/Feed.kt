@@ -69,7 +69,7 @@ class Feed : AppCompatActivity() {
     private fun makeRequest() {
         // create retrofit object
         val instance = Retrofit.Builder()
-            .baseUrl("http://192.168.244.201:8080/")
+            .baseUrl("http://192.168.0.116:8080/")
             .addConverterFactory(GsonConverterFactory.create())
             .build()
         // create service using Interface that has the request methods
