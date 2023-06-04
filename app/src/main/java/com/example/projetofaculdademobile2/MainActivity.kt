@@ -3,6 +3,7 @@ package com.example.projetofaculdademobile2
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Patterns
 import com.example.projetofaculdademobile2.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
@@ -20,8 +21,15 @@ class MainActivity : AppCompatActivity() {
             val password = binding.editSenha.text.toString()
 
             if (email.isEmpty() || password.isEmpty()) {
+
+                var hasError = false
+
                 if (email.isEmpty()) {
                     binding.editEmail.error = "Campo obrigatório"
+                    hasError = true
+                } else if (!Patterns.EMAIL_ADDRESS.matcher(email).matches()) {
+                    binding.editEmail.error = "Formato de e-mail inválido"
+                    hasError = true
                 }
 
                 if (password.isEmpty()) {
@@ -31,10 +39,6 @@ class MainActivity : AppCompatActivity() {
                 return@setOnClickListener
             }
 
-            if (!email.contains("@gmail.com", ignoreCase = true)) {
-                binding.editEmail.error = "Obrigatório @gmail.com"
-                return@setOnClickListener
-            }
 
             val navigationFeed = Intent(this, Feed::class.java)
             startActivity(navigationFeed)

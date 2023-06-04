@@ -1,6 +1,7 @@
 package com.example.projetofaculdademobile2.Service
 
 import com.example.projetofaculdademobile2.Model.UserModel
+import com.example.projetofaculdademobile2.Model.UserProfile
 import okhttp3.ResponseBody
 import retrofit2.Call
 import retrofit2.http.Body
@@ -13,6 +14,6 @@ interface UserService {
     fun createUser(@Body userModel: UserModel): Call<ResponseBody>
 
     @PUT("user/{id}")
-    fun updateUser(@Path("id") userId: Long, @Body userData: UserModel): Call<ResponseBody>
+    fun updateUser(@Path("id") userId: Long, @Body userData: UserProfile): Call<ResponseBody>
 }
 
