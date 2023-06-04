@@ -46,11 +46,18 @@ class Profile : AppCompatActivity() {
             val toLogout = Intent(this, MainActivity::class.java)
             startActivity(toLogout)
         }
+<<<<<<< HEAD
+=======
+
+>>>>>>> 4607ab477cb769b73242cd9facefc5fc36c27bfb
         binding.buttonProfile.setOnClickListener {
             var toEditProfile = Intent(this, EditProfile::class.java)
             startActivity(toEditProfile)
         }
+<<<<<<< HEAD
 
+=======
+>>>>>>> 4607ab477cb769b73242cd9facefc5fc36c27bfb
 
         setUpList()
         binding.run {
