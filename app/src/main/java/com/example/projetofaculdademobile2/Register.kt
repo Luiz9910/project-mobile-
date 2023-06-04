@@ -7,7 +7,6 @@ import android.util.Patterns
 import android.widget.Toast
 import com.example.projetofaculdademobile2.Model.UserModel
 import com.example.projetofaculdademobile2.Service.UserService
-import com.example.projetofaculdademobile2.databinding.ActivityMainBinding
 import com.example.projetofaculdademobile2.databinding.ActivityRegisterBinding
 import okhttp3.ResponseBody
 import retrofit2.Call

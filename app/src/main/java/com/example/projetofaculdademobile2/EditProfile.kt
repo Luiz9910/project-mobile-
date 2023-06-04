@@ -1,9 +1,10 @@
 package com.example.projetofaculdademobile2
 
 import android.os.Bundle
+import android.util.Patterns
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
-import com.example.projetofaculdademobile2.Model.UserModel
+import com.example.projetofaculdademobile2.Model.UserProfile
 import com.example.projetofaculdademobile2.Service.UserService
 import com.example.projetofaculdademobile2.databinding.ActivityEditProfileBinding
 import okhttp3.ResponseBody
@@ -21,6 +22,37 @@ class EditProfile : AppCompatActivity() {
         setContentView(binding.root)
 
         binding.updateUserProfile.setOnClickListener {
+
+                val name = binding.editNome.text.toString()
+                val description = binding.editDescricao.text.toString()
+                val email = binding.editEmail.text.toString()
+
+                var hasError = false
+
+                if (name.isEmpty()) {
+                    binding.editNome.error = "Campo obrigatório"
+                    hasError = true
+                }
+
+                if (description.isEmpty()) {
+                    binding.editDescricao.error = "Campo obrigatório"
+                    hasError = true
+                }
+
+                if (email.isEmpty()) {
+                    binding.editEmail.error = "Campo obrigatório"
+                    hasError = true
+                } else if (!Patterns.EMAIL_ADDRESS.matcher(email).matches()) {
+                    binding.editEmail.error = "Formato de e-mail inválido"
+                    hasError = true
+                }
+
+                if (hasError) {
+                    return@setOnClickListener
+                }
+
+
+            }
             val userData = getFormData()
 
             val retrofit = Retrofit.Builder()
@@ -56,16 +88,15 @@ class EditProfile : AppCompatActivity() {
                     t.printStackTrace()
                 }
             })
-        }
-    }
-
-    private fun getFormData(): UserModel {
+      }
+    private fun getFormData(): UserProfile {
         val name = binding.editNome.text.toString()
         val email = binding.editEmail.text.toString()
-        val password = "123"
-        val description = binding.editDescriO.text.toString()
-        println(UserModel(name, email, password, description, isCompany = "Nao"))
+        val description = binding.editDescricao.text.toString()
+        println(UserProfile(name, email, description))
         // preciso ajeitar isso, ao inves de retonar todos esses texto que tá aí em baixo eu tenho que pegar os dados que veio do usuário e passar ele aí em baixo
-        return UserModel("scooby", "mfmsdf@gmail.com", "fsdfsdfsd", "fsdfsdf", isCompany = "Nao");
+        return UserProfile("scooby", "mfmsdf@gmail.com", "fsdfsdfsd");
     }
-}
+    }
+
+
