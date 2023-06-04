@@ -4,7 +4,8 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
-import com.example.projetofaculdademobile2.Service.UserService
+import com.example.projetofaculdademobile2.ListProjectFeed.ProjectService
+import com.example.projetofaculdademobile2.Model.ProjectModel
 import com.example.projetofaculdademobile2.databinding.ActivityPostProjectBinding
 import okhttp3.ResponseBody
 import retrofit2.Call
@@ -58,7 +59,49 @@ class PostProject : AppCompatActivity() {
                 return@setOnClickListener
             }
 
+            val userData = getFormData()
+
+            val retrofit = Retrofit.Builder()
+                .baseUrl("http://192.168.0.116:8080/")
+                .addConverterFactory(GsonConverterFactory.create())
+                .build()
+
+            val projectService = retrofit.create(ProjectService::class.java)
+            val call = projectService.postProject(userData)
+
+            call.enqueue(object : Callback<ResponseBody> {
+                override fun onResponse(
+                    call: Call<ResponseBody>,
+                    response: Response<ResponseBody>,
+                ) {
+                    if (response.code() == 201) {
+                        Toast.makeText(
+                            this@PostProject,
+                            "Projeto salvo com sucesso",
+                            Toast.LENGTH_SHORT
+                        ).show()
+                    } else {
+                        Toast.makeText(
+                            this@PostProject,
+                            "Falha ao publicar projeto",
+                            Toast.LENGTH_SHORT
+                        ).show()
+                    }
+                }
+
+                override fun onFailure(call: Call<ResponseBody>, t: Throwable) {
+                    Toast.makeText(this@PostProject, "Falha na chamada", Toast.LENGTH_SHORT).show()
+                    t.printStackTrace()
+                }
+            })
         }
 
     }
+    private fun getFormData(): ProjectModel {
+        val title = binding.TituloPublicacao.text.toString()
+        val description = binding.DescriptionPublicacao.text.toString()
+        val userId = "1"
+        // preciso ajeitar isso, ao inves de retonar todos esses texto que tá aí em baixo eu tenho que pegar os dados que veio do usuário e passar ele aí em baixo
+        return ProjectModel("scooby-doo", "tururururururuururururururururururu", "1");
     }
+}

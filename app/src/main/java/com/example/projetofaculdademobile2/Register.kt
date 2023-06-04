@@ -59,7 +59,7 @@ class Register : AppCompatActivity() {
             val userData = getFormData()
 
             val retrofit = Retrofit.Builder()
-                .baseUrl("http://192.168.3.237:8080/")
+                .baseUrl("http://192.168.0.116:8080/")
                 .addConverterFactory(GsonConverterFactory.create())
                 .build()
 

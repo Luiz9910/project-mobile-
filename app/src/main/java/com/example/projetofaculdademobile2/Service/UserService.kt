@@ -1,5 +1,6 @@
 package com.example.projetofaculdademobile2.Service
 
+import com.example.projetofaculdademobile2.Model.ProjectModel
 import com.example.projetofaculdademobile2.Model.UserModel
 import okhttp3.ResponseBody
 import retrofit2.Call
@@ -14,5 +15,8 @@ interface UserService {
 
     @PUT("user/{id}")
     fun updateUser(@Path("id") userId: Long, @Body userData: UserModel): Call<ResponseBody>
+
+    @POST("user/user")
+    fun createProject(@Body projectModel: ProjectModel): Call<ResponseBody>
 }
 
