@@ -116,7 +116,7 @@ class Register : AppCompatActivity() {
         val name = binding.editNome.text.toString()
         val email = binding.editEmail.text.toString()
         val password = binding.editSenha.text.toString()
-        val description = "sei lá"
+        val description = "communityaid"
         val isCompany = "Sim"
 
         return UserModel(name, email, password, description, isCompany)

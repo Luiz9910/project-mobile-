@@ -15,8 +15,5 @@ interface UserService {
 
     @PUT("user/{id}")
     fun updateUser(@Path("id") userId: Long, @Body userData: UserModel): Call<ResponseBody>
-
-    @POST("user/user")
-    fun createProject(@Body projectModel: ProjectModel): Call<ResponseBody>
 }
 

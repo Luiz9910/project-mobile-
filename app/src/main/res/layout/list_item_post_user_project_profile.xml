@@ -28,7 +28,7 @@
                 android:id="@+id/title"
                 android:layout_width="265dp"
                 android:layout_height="match_parent"
-                android:text="Título"
+                android:text="@string/titleFeed"
                 android:textColor="@color/black" />
 
 
@@ -51,7 +51,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="5dp"
-            android:text="Descrição"
+            android:text="@string/descriptionFeed"
             android:textColor="@color/black" />
 
         <LinearLayout

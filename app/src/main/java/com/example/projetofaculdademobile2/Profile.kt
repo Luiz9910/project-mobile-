@@ -4,13 +4,10 @@ import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
-import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.projetofaculdademobile2.ListProjectFeed.FeedProjectsListAdapter
-import com.example.projetofaculdademobile2.ListProjectFeed.ProjectModel
-import com.example.projetofaculdademobile2.ListProjectFeed.ProjectService
-import com.example.projetofaculdademobile2.ListProjectProfile.ProjectProfilePost
-import com.example.projetofaculdademobile2.ListProjectProfile.ProjectProfilePostRecyclerViewAdapter
+import com.example.projetofaculdademobile2.Model.ProjectModelParcelize
+import com.example.projetofaculdademobile2.Service.ProjectService
 import com.example.projetofaculdademobile2.databinding.ActivityProfileBinding
 import retrofit2.Call
 import retrofit2.Callback
@@ -20,7 +17,7 @@ import retrofit2.converter.gson.GsonConverterFactory
 
 class Profile : AppCompatActivity() {
     private lateinit var binding: ActivityProfileBinding
-    private lateinit var projectModels: ArrayList<ProjectModel>
+    private lateinit var projectModelParcelizes: ArrayList<ProjectModelParcelize>
     private lateinit var adapter: FeedProjectsListAdapter
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -83,20 +80,20 @@ class Profile : AppCompatActivity() {
         val service = instance.create(ProjectService::class.java)
         changeElementsVisibility(progressBarVisibility = View.VISIBLE)
         // build the call
-        val reponse: Call<List<ProjectModel>> = service.listProject("projects")
+        val reponse: Call<List<ProjectModelParcelize>> = service.listProject("projects")
         // make the call
-        reponse.enqueue(object : Callback<List<ProjectModel>> {
+        reponse.enqueue(object : Callback<List<ProjectModelParcelize>> {
 
             override fun onResponse(
-                call: Call<List<ProjectModel>>,
-                response: Response<List<ProjectModel>>
+                call: Call<List<ProjectModelParcelize>>,
+                response: Response<List<ProjectModelParcelize>>
             ) {
                 if (response.code() == 200) {
                     response.body()?.let {
                         if (it.isEmpty()) {
                             changeElementsVisibility(emptyMessageVisibility = View.VISIBLE)
                         } else {
-                            projectModels.addAll(it)
+                            projectModelParcelizes.addAll(it)
                             adapter.notifyItemRangeChanged(0, it.size)
                             changeElementsVisibility(rvVisibilityMessageVisibility = View.VISIBLE)
                         }
@@ -107,7 +104,7 @@ class Profile : AppCompatActivity() {
             }
 
             override fun onFailure(
-                call: Call<List<ProjectModel>>,
+                call: Call<List<ProjectModelParcelize>>,
                 t: Throwable
             ) {
                 t.printStackTrace()
@@ -118,9 +115,9 @@ class Profile : AppCompatActivity() {
     }
 
     private fun setUpList() {
-        projectModels = arrayListOf()
+        projectModelParcelizes = arrayListOf()
         adapter = FeedProjectsListAdapter(
-            projectModels
+            projectModelParcelizes
         )
         binding.rvRepositories.layoutManager = LinearLayoutManager(this)
         binding.rvRepositories.adapter = adapter

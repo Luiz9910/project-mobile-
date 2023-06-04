@@ -6,8 +6,8 @@ import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.projetofaculdademobile2.ListProjectFeed.FeedProjectsListAdapter
-import com.example.projetofaculdademobile2.ListProjectFeed.ProjectModel
-import com.example.projetofaculdademobile2.ListProjectFeed.ProjectService
+import com.example.projetofaculdademobile2.Model.ProjectModelParcelize
+import com.example.projetofaculdademobile2.Service.ProjectService
 import com.example.projetofaculdademobile2.databinding.ActivityFeedBinding
 import retrofit2.Call
 import retrofit2.Callback
@@ -17,7 +17,7 @@ import retrofit2.converter.gson.GsonConverterFactory
 
 class Feed : AppCompatActivity() {
     private lateinit var binding: ActivityFeedBinding
-    private lateinit var projectModels: ArrayList<ProjectModel>
+    private lateinit var projectModelParcelizes: ArrayList<ProjectModelParcelize>
     private lateinit var adapter: FeedProjectsListAdapter
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -52,17 +52,13 @@ class Feed : AppCompatActivity() {
     }
 
     private fun changeElementsVisibility(
-        welcomeMessageVisibility: Int = View.GONE,
         errorMessageVisibility: Int = View.GONE,
         emptyMessageVisibility: Int = View.GONE,
-        rvVisibilityMessageVisibility: Int = View.GONE,
-        progressBarVisibility: Int = View.GONE
+        rvVisibilityMessageVisibility: Int = View.GONE
     ) {
-        binding.welcomeMessage.visibility = welcomeMessageVisibility
         binding.erroMessage.visibility = errorMessageVisibility
         binding.emptyMessage.visibility = emptyMessageVisibility
-        binding.rvRepositories.visibility = rvVisibilityMessageVisibility
-        binding.progressBar.visibility = progressBarVisibility
+        binding.listProject.visibility = rvVisibilityMessageVisibility
     }
 
 
@@ -74,33 +70,38 @@ class Feed : AppCompatActivity() {
             .build()
         // create service using Interface that has the request methods
         val service = instance.create(ProjectService::class.java)
-        changeElementsVisibility(progressBarVisibility = View.VISIBLE)
         // build the call
-        val reponse: Call<List<ProjectModel>> = service.listProject("projects")
+        val reponse: Call<List<ProjectModelParcelize>> = service.listProject("projects")
         // make the call
-        reponse.enqueue(object : Callback<List<ProjectModel>> {
+        reponse.enqueue(object : Callback<List<ProjectModelParcelize>> {
 
             override fun onResponse(
-                call: Call<List<ProjectModel>>,
-                response: Response<List<ProjectModel>>
+                call: Call<List<ProjectModelParcelize>>,
+                response: Response<List<ProjectModelParcelize>>
             ) {
                 if (response.code() == 200) {
                     response.body()?.let {
-                        if (it.isEmpty()) {
-                            changeElementsVisibility(emptyMessageVisibility = View.VISIBLE)
-                        } else {
-                            projectModels.addAll(it)
-                            adapter.notifyItemRangeChanged(0, it.size)
-                            changeElementsVisibility(rvVisibilityMessageVisibility = View.VISIBLE)
-                        }
+                        projectModelParcelizes.addAll(it)
+                        adapter.notifyItemRangeChanged(0, it.size)
+                        changeElementsVisibility(rvVisibilityMessageVisibility = View.VISIBLE)
                     } ?: run {
                         changeElementsVisibility(errorMessageVisibility = View.VISIBLE)
                     }
                 }
+
+                if (response.code() == 204){
+                    changeElementsVisibility(emptyMessageVisibility = View.VISIBLE)
+                    return;
+                }
+
+                if (response.code() == 500) {
+                    changeElementsVisibility(errorMessageVisibility = View.VISIBLE)
+                    return;
+                }
             }
 
             override fun onFailure(
-                call: Call<List<ProjectModel>>,
+                call: Call<List<ProjectModelParcelize>>,
                 t: Throwable
             ) {
                 t.printStackTrace()
@@ -111,11 +112,11 @@ class Feed : AppCompatActivity() {
     }
 
     private fun setUpList() {
-        projectModels = arrayListOf()
+        projectModelParcelizes = arrayListOf()
         adapter = FeedProjectsListAdapter(
-            projectModels
+            projectModelParcelizes
         )
-        binding.rvRepositories.layoutManager = LinearLayoutManager(this)
-        binding.rvRepositories.adapter = adapter
+        binding.listProject.layoutManager = LinearLayoutManager(this)
+        binding.listProject.adapter = adapter
     }
 }

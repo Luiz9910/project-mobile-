@@ -51,12 +51,8 @@
     <string name="hintemail"> E-mail</string>
     <string name="txt_buttom_upload"> Atualizar </string>
 
-    <string name="app_name1">NetworkConection</string>
-    <string name="go_to_web">Go to Web</string>
-    <string name="created_by">Repositório criado por: %s</string>
-    <string name="title1">Título: %s</string>
-    <string name="description1">Descrição: %s</string>
-    <string name="welcome_message">Bem vindos a listagem dos Repositórios do GitHub do Professor</string>
+    <string name="titleFeed">Título: %s</string>
+    <string name="descriptionFeed">Descrição: %s</string>
     <string name="error_message">Aconteceu um erro por aqui, tente novamente!</string>
-    <string name="empty_message">Ops, parece que a lista está vazia!</string>
+    <string name="empty_message">Ops, parece que não tem conteúdo!</string>
 </resources>

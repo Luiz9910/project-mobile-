@@ -5,11 +5,10 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import android.widget.EditText
-import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.projetofaculdademobile2.ListProjectFeed.FeedProjectsListAdapter
-import com.example.projetofaculdademobile2.ListProjectFeed.ProjectModel
-import com.example.projetofaculdademobile2.ListProjectFeed.ProjectService
+import com.example.projetofaculdademobile2.Model.ProjectModelParcelize
+import com.example.projetofaculdademobile2.Service.ProjectService
 import com.example.projetofaculdademobile2.databinding.ActivitySearchBinding
 import retrofit2.Call
 import retrofit2.Callback
@@ -19,7 +18,7 @@ import retrofit2.converter.gson.GsonConverterFactory
 
 class Search : AppCompatActivity() {
     private lateinit var binding: ActivitySearchBinding
-    private lateinit var projectModels: ArrayList<ProjectModel>
+    private lateinit var projectModelParcelizes: ArrayList<ProjectModelParcelize>
     private lateinit var adapter: FeedProjectsListAdapter
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -80,20 +79,20 @@ class Search : AppCompatActivity() {
         val service = instance.create(ProjectService::class.java)
         changeElementsVisibility(progressBarVisibility = View.VISIBLE)
         // build the call
-        val reponse: Call<List<ProjectModel>> = service.listSearchProject(title)
+        val reponse: Call<List<ProjectModelParcelize>> = service.listSearchProject(title)
         // make the call
-        reponse.enqueue(object : Callback<List<ProjectModel>> {
+        reponse.enqueue(object : Callback<List<ProjectModelParcelize>> {
 
             override fun onResponse(
-                call: Call<List<ProjectModel>>,
-                response: Response<List<ProjectModel>>
+                call: Call<List<ProjectModelParcelize>>,
+                response: Response<List<ProjectModelParcelize>>
             ) {
                 if (response.code() == 200) {
                     response.body()?.let {
                         if (it.isEmpty()) {
                             changeElementsVisibility(emptyMessageVisibility = View.VISIBLE)
                         } else {
-                            projectModels.addAll(it)
+                            projectModelParcelizes.addAll(it)
                             adapter.notifyItemRangeChanged(0, it.size)
                             changeElementsVisibility(rvVisibilityMessageVisibility = View.VISIBLE)
                         }
@@ -104,7 +103,7 @@ class Search : AppCompatActivity() {
             }
 
             override fun onFailure(
-                call: Call<List<ProjectModel>>,
+                call: Call<List<ProjectModelParcelize>>,
                 t: Throwable
             ) {
                 t.printStackTrace()
@@ -115,9 +114,9 @@ class Search : AppCompatActivity() {
     }
 
     private fun setUpList() {
-        projectModels = arrayListOf()
+        projectModelParcelizes = arrayListOf()
         adapter = FeedProjectsListAdapter(
-            projectModels
+            projectModelParcelizes
         )
         binding.rvRepositories.layoutManager = LinearLayoutManager(this)
         binding.rvRepositories.adapter = adapter
