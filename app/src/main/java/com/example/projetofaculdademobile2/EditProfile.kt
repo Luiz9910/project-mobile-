@@ -1,10 +1,9 @@
 package com.example.projetofaculdademobile2
 
 import android.os.Bundle
-import android.util.Patterns
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
-import com.example.projetofaculdademobile2.Model.UserProfile
+import com.example.projetofaculdademobile2.Model.UserModel
 import com.example.projetofaculdademobile2.Service.UserService
 import com.example.projetofaculdademobile2.databinding.ActivityEditProfileBinding
 import okhttp3.ResponseBody
@@ -22,37 +21,6 @@ class EditProfile : AppCompatActivity() {
         setContentView(binding.root)
 
         binding.updateUserProfile.setOnClickListener {
-
-                val name = binding.editNome.text.toString()
-                val description = binding.editDescricao.text.toString()
-                val email = binding.editEmail.text.toString()
-
-                var hasError = false
-
-                if (name.isEmpty()) {
-                    binding.editNome.error = "Campo obrigatório"
-                    hasError = true
-                }
-
-                if (description.isEmpty()) {
-                    binding.editDescricao.error = "Campo obrigatório"
-                    hasError = true
-                }
-
-                if (email.isEmpty()) {
-                    binding.editEmail.error = "Campo obrigatório"
-                    hasError = true
-                } else if (!Patterns.EMAIL_ADDRESS.matcher(email).matches()) {
-                    binding.editEmail.error = "Formato de e-mail inválido"
-                    hasError = true
-                }
-
-                if (hasError) {
-                    return@setOnClickListener
-                }
-
-
-            }
             val userData = getFormData()
 
             val retrofit = Retrofit.Builder()
@@ -74,6 +42,14 @@ class EditProfile : AppCompatActivity() {
                             "Dados atualizados com sucesso",
                             Toast.LENGTH_SHORT
                         ).show()
+                    }
+
+                    if (response.code() == 404) {
+                        Toast.makeText(
+                            this@EditProfile,
+                            "Usuário não encontrado para atualizar",
+                            Toast.LENGTH_SHORT
+                        ).show()
                     } else {
                         Toast.makeText(
                             this@EditProfile,
@@ -88,15 +64,15 @@ class EditProfile : AppCompatActivity() {
                     t.printStackTrace()
                 }
             })
-      }
-    private fun getFormData(): UserProfile {
-        val name = binding.editNome.text.toString()
-        val email = binding.editEmail.text.toString()
-        val description = binding.editDescricao.text.toString()
-        println(UserProfile(name, email, description))
+        }
+    }
+
+    private fun getFormData(): UserModel {
+        val nameInput = binding.editNome.getText().toString()
+        val emailInput = binding.editEmail.getText().toString()
+        val passwordInput = binding.editPassword.getText().toString()
+        val descriptionInput = binding.editDescricao.getText().toString()
         // preciso ajeitar isso, ao inves de retonar todos esses texto que tá aí em baixo eu tenho que pegar os dados que veio do usuário e passar ele aí em baixo
-        return UserProfile("scooby", "mfmsdf@gmail.com", "fsdfsdfsd");
+        return UserModel(name = nameInput, email = emailInput, password =  passwordInput, description = descriptionInput , isCompany = "Nao");
     }
-    }
-
-
+}

@@ -70,23 +70,6 @@
         android:layout_marginLeft="15dp"
         android:textStyle="bold"/>
 
-
-    <androidx.appcompat.widget.AppCompatTextView
-        android:id="@+id/welcomeMessage"
-        android:layout_width="367dp"
-        android:layout_height="397dp"
-        android:layout_marginStart="20dp"
-        android:layout_marginEnd="20dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView4"
-        tools:itemCount="100"
-        tools:layoutManager="GridLayoutManager"
-        android:text="@string/welcome_message"
-        android:textSize="24sp"
-        android:layout_marginTop="300dp"/>
-
     <androidx.appcompat.widget.AppCompatTextView
         android:id="@+id/erroMessage"
         android:layout_width="367dp"
@@ -125,24 +108,9 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <ProgressBar
-        android:id="@+id/progressBar"
-        android:layout_width="367dp"
-        android:layout_height="397dp"
-        android:layout_marginStart="20dp"
-        android:layout_marginTop="280dp"
-        android:layout_marginEnd="20dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView4"
-        tools:itemCount="100"
-        tools:layoutManager="GridLayoutManager"
-        android:visibility="gone"
-        app:layout_constraintTop_toTopOf="parent" />
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/rvRepositories"
+        android:id="@+id/listProjectProfile"
         android:layout_width="367dp"
         android:layout_height="397dp"
         android:layout_marginStart="20dp"
@@ -157,7 +125,6 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         tools:listitem="@layout/list_item_projects_feed" />
-
 
     <include
         android:id="@+id/tabBar"

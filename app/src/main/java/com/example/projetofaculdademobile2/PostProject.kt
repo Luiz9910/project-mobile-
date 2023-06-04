@@ -98,10 +98,10 @@ class PostProject : AppCompatActivity() {
 
     }
     private fun getFormData(): ProjectModel {
-        val title = binding.TituloPublicacao.text.toString()
-        val description = binding.DescriptionPublicacao.text.toString()
+        var inputTitle = binding.TituloPublicacao.getText().toString();
+        val inputDescription = binding.DescriptionPublicacao.getText().toString()
         val userId = "1"
         // preciso ajeitar isso, ao inves de retonar todos esses texto que tá aí em baixo eu tenho que pegar os dados que veio do usuário e passar ele aí em baixo
-        return ProjectModel("scooby-doo", "tururururururuururururururururururu", "1");
+        return ProjectModel(inputTitle, inputDescription, "1");
     }
 }

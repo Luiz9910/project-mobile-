@@ -22,14 +22,11 @@ class MainActivity : AppCompatActivity() {
 
             if (email.isEmpty() || password.isEmpty()) {
 
-                var hasError = false
-
                 if (email.isEmpty()) {
                     binding.editEmail.error = "Campo obrigatório"
-                    hasError = true
+
                 } else if (!Patterns.EMAIL_ADDRESS.matcher(email).matches()) {
                     binding.editEmail.error = "Formato de e-mail inválido"
-                    hasError = true
                 }
 
                 if (password.isEmpty()) {

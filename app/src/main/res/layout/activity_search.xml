@@ -35,20 +35,6 @@
     </RelativeLayout>
 
     <androidx.appcompat.widget.AppCompatTextView
-        android:id="@+id/welcomeMessage"
-        android:layout_width="367dp"
-        android:layout_height="match_parent"
-        android:layout_marginStart="20dp"
-        android:layout_marginEnd="20dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        tools:itemCount="100"
-        tools:layoutManager="GridLayoutManager"
-        android:text="@string/welcome_message"
-        android:textSize="24sp"
-        android:layout_marginTop="90dp"/>
-
-    <androidx.appcompat.widget.AppCompatTextView
         android:id="@+id/erroMessage"
         android:layout_width="367dp"
         android:layout_height="397dp"
@@ -84,23 +70,8 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <ProgressBar
-        android:id="@+id/progressBar"
-        android:layout_width="367dp"
-        android:layout_height="397dp"
-        android:layout_marginStart="20dp"
-        android:layout_marginTop="280dp"
-        android:layout_marginEnd="20dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        tools:itemCount="100"
-        tools:layoutManager="GridLayoutManager"
-        android:visibility="gone"
-        app:layout_constraintTop_toTopOf="parent" />
-
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/rvRepositories"
+        android:id="@+id/listProjectSearch"
         android:layout_width="367dp"
         android:layout_height="match_parent"
         android:layout_marginStart="20dp"

@@ -47,25 +47,20 @@ class Search : AppCompatActivity() {
 
         setUpList()
         binding.iconSearch.setOnClickListener {
-            val editText = findViewById<EditText>(R.id.editText)
-            var userInput = editText.getText().toString();
+            var userInput = binding.editText.getText().toString();
 
             makeRequest(userInput)
         }
     }
 
     private fun changeElementsVisibility(
-        welcomeMessageVisibility: Int = View.GONE,
         errorMessageVisibility: Int = View.GONE,
         emptyMessageVisibility: Int = View.GONE,
-        rvVisibilityMessageVisibility: Int = View.GONE,
-        progressBarVisibility: Int = View.GONE
+        rvVisibilityMessageVisibility: Int = View.GONE
     ) {
-        binding.welcomeMessage.visibility = welcomeMessageVisibility
         binding.erroMessage.visibility = errorMessageVisibility
         binding.emptyMessage.visibility = emptyMessageVisibility
-        binding.rvRepositories.visibility = rvVisibilityMessageVisibility
-        binding.progressBar.visibility = progressBarVisibility
+        binding.listProjectSearch.visibility = rvVisibilityMessageVisibility
     }
 
 
@@ -77,7 +72,6 @@ class Search : AppCompatActivity() {
             .build()
         // create service using Interface that has the request methods
         val service = instance.create(ProjectService::class.java)
-        changeElementsVisibility(progressBarVisibility = View.VISIBLE)
         // build the call
         val reponse: Call<List<ProjectModelParcelize>> = service.listSearchProject(title)
         // make the call
@@ -118,7 +112,7 @@ class Search : AppCompatActivity() {
         adapter = FeedProjectsListAdapter(
             projectModelParcelizes
         )
-        binding.rvRepositories.layoutManager = LinearLayoutManager(this)
-        binding.rvRepositories.adapter = adapter
+        binding.listProjectSearch.layoutManager = LinearLayoutManager(this)
+        binding.listProjectSearch.adapter = adapter
     }
 }

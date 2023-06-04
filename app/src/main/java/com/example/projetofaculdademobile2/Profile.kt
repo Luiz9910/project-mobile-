@@ -56,17 +56,13 @@ class Profile : AppCompatActivity() {
     }
 
     private fun changeElementsVisibility(
-        welcomeMessageVisibility: Int = View.GONE,
         errorMessageVisibility: Int = View.GONE,
         emptyMessageVisibility: Int = View.GONE,
-        rvVisibilityMessageVisibility: Int = View.GONE,
-        progressBarVisibility: Int = View.GONE
+        rvVisibilityMessageVisibility: Int = View.GONE
     ) {
-        binding.welcomeMessage.visibility = welcomeMessageVisibility
         binding.erroMessage.visibility = errorMessageVisibility
         binding.emptyMessage.visibility = emptyMessageVisibility
-        binding.rvRepositories.visibility = rvVisibilityMessageVisibility
-        binding.progressBar.visibility = progressBarVisibility
+        binding.listProjectProfile.visibility = rvVisibilityMessageVisibility
     }
 
 
@@ -78,7 +74,6 @@ class Profile : AppCompatActivity() {
             .build()
         // create service using Interface that has the request methods
         val service = instance.create(ProjectService::class.java)
-        changeElementsVisibility(progressBarVisibility = View.VISIBLE)
         // build the call
         val reponse: Call<List<ProjectModelParcelize>> = service.listProject("projects")
         // make the call
@@ -90,16 +85,22 @@ class Profile : AppCompatActivity() {
             ) {
                 if (response.code() == 200) {
                     response.body()?.let {
-                        if (it.isEmpty()) {
-                            changeElementsVisibility(emptyMessageVisibility = View.VISIBLE)
-                        } else {
-                            projectModelParcelizes.addAll(it)
-                            adapter.notifyItemRangeChanged(0, it.size)
-                            changeElementsVisibility(rvVisibilityMessageVisibility = View.VISIBLE)
-                        }
+                        projectModelParcelizes.addAll(it)
+                        adapter.notifyItemRangeChanged(0, it.size)
+                        changeElementsVisibility(rvVisibilityMessageVisibility = View.VISIBLE)
                     } ?: run {
                         changeElementsVisibility(errorMessageVisibility = View.VISIBLE)
                     }
+                }
+
+                if (response.code() == 204){
+                    changeElementsVisibility(emptyMessageVisibility = View.VISIBLE)
+                    return;
+                }
+
+                if (response.code() == 500) {
+                    changeElementsVisibility(errorMessageVisibility = View.VISIBLE)
+                    return;
                 }
             }
 
@@ -119,7 +120,7 @@ class Profile : AppCompatActivity() {
         adapter = FeedProjectsListAdapter(
             projectModelParcelizes
         )
-        binding.rvRepositories.layoutManager = LinearLayoutManager(this)
-        binding.rvRepositories.adapter = adapter
+        binding.listProjectProfile.layoutManager = LinearLayoutManager(this)
+        binding.listProjectProfile.adapter = adapter
     }
 }
