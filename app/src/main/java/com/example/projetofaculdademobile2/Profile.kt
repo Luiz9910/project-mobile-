@@ -46,7 +46,10 @@ class Profile : AppCompatActivity() {
             val toLogout = Intent(this, MainActivity::class.java)
             startActivity(toLogout)
         }
-
+        binding.buttonProfile.setOnClickListener {
+            var toEditProfile = Intent(this, EditProfile::class.java)
+            startActivity(toEditProfile)
+        }
 
 
         setUpList()
@@ -73,7 +76,7 @@ class Profile : AppCompatActivity() {
     private fun makeRequest() {
         // create retrofit object
         val instance = Retrofit.Builder()
-            .baseUrl("http://192.168.0.116:8080/")
+            .baseUrl("http://192.168.3.237:8080/")
             .addConverterFactory(GsonConverterFactory.create())
             .build()
         // create service using Interface that has the request methods
