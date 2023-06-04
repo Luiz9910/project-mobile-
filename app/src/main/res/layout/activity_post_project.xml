@@ -85,24 +85,6 @@
             android:textColorHint="@color/black"
             android:padding="10dp" />
 
-        <ImageView
-            android:layout_width="50dp"
-            android:layout_height="50dp"
-            android:layout_marginLeft="20dp"
-            android:layout_marginTop="400dp"
-            android:src="@drawable/foto"/>
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="top"
-            android:layout_marginLeft="100dp"
-            android:text="Foto"
-            android:textColor="@color/black"
-            android:layout_marginTop="410dp"
-            android:textSize="28sp"
-            android:textStyle="bold"/>
-
         <Button
             android:id="@+id/publicationProjct"
             android:layout_width="match_parent"
