@@ -74,7 +74,6 @@ class Register : AppCompatActivity() {
                 return@setOnClickListener
             }
 
-
             val userData = getFormData()
 
             val retrofit = Retrofit.Builder()
@@ -87,9 +86,22 @@ class Register : AppCompatActivity() {
 
             call.enqueue(object : Callback<ResponseBody> {
                 override fun onResponse(call: Call<ResponseBody>, response: Response<ResponseBody>) {
-                    Toast.makeText(this@Register, "Cadastrado com sucesso", Toast.LENGTH_SHORT).show()
-                    val toLogin = Intent(this@Register, MainActivity::class.java)
-                    startActivity(toLogin)
+                    if (response.code() == 201) {
+                        Toast.makeText(this@Register, "Cadastrado com sucesso", Toast.LENGTH_SHORT).show()
+                        val toLogin = Intent(this@Register, MainActivity::class.java)
+                        startActivity(toLogin)
+                        return;
+                    }
+
+                    if (response.code() == 400) {
+                        binding.editEmail.error = "Email já está sendo utilizado"
+                        return;
+                    }
+
+                    if (response.code() == 500) {
+                        Toast.makeText(this@Register, "Falha ao cadastrar o usuário", Toast.LENGTH_SHORT).show()
+                        return;
+                    }
                 }
 
                 override fun onFailure(call: Call<ResponseBody>, t: Throwable) {
