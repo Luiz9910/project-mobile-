@@ -3,6 +3,7 @@ package com.example.projetofaculdademobile2
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Patterns
 import android.widget.Toast
 import com.example.projetofaculdademobile2.Model.UserModel
 import com.example.projetofaculdademobile2.Service.UserService
@@ -15,7 +16,19 @@ import retrofit2.Response
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
+
 class Register : AppCompatActivity() {
+
+    fun isPasswordStrong(password: String): Boolean {
+        val minLength = 8
+        val hasUppercase = password.matches(".*[A-Z].*".toRegex())
+        val hasLowercase = password.matches(".*[a-z].*".toRegex())
+        val hasDigit = password.matches(".*\\d.*".toRegex())
+        val hasSpecialChar = password.matches(".*[@#$%^&+=].*".toRegex())
+
+        return password.length >= minLength && hasUppercase && hasLowercase && hasDigit && hasSpecialChar
+    }
+
 
     private lateinit var binding
             : ActivityRegisterBinding
@@ -31,30 +44,36 @@ class Register : AppCompatActivity() {
             val email = binding.editEmail.text.toString()
             val password = binding.editSenha.text.toString()
 
+            var hasError = false
 
-            if (name.isEmpty() || name.isEmpty() || password.isEmpty()) {
-                if (name.isEmpty()) {
-                    binding.editNome.error = "Campo obrigatório"
-                }
+            if (name.isEmpty()) {
+                binding.editNome.error = "Campo obrigatório"
+                hasError = true
+            }
 
-                if (email.isEmpty()) {
-                    binding.editEmail.error = "Campo obrigatório"
-                }
+            if (email.isEmpty()) {
+                binding.editEmail.error = "Campo obrigatório"
+                hasError = true
+            } else if (!Patterns.EMAIL_ADDRESS.matcher(email).matches()) {
+                binding.editEmail.error = "Formato de e-mail inválido"
+                hasError = true
+            }
 
-                if (!email.contains("@gmail.com", ignoreCase = true)) {
-                    binding.editEmail.error = "Obrigatório @gmail.com"
-                }
+            if (password.isEmpty()) {
+                binding.editSenha.error = "Campo obrigatório"
+                hasError = true
+            } else if (password.length < 8) {
+                binding.editSenha.error = "Tem que ter 6 caracteres"
+                hasError = true
+            } else if (!isPasswordStrong(password)) {
+                binding.editSenha.error = "Senha fraca. Use uma senha mais forte."
+                hasError = true
+            }
 
-                if (password.isEmpty()) {
-                    binding.editSenha.error = "Campo obrigatório"
-                }
-
-                if (password.length < 6) {
-                    binding.editSenha.error = "Tem que ter 6 caracteres"
-                }
-
+            if (hasError) {
                 return@setOnClickListener
             }
+
 
             val userData = getFormData()
 
