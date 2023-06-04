@@ -3,6 +3,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:fillViewport="true"
+    android:background="@color/white"
     xmlns:android="http://schemas.android.com/apk/res/android">
 
     <LinearLayout
@@ -28,6 +29,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="@string/hintname"
+            android:textColor="@color/black"
             android:padding="10dp"
             android:layout_margin="20dp">
         </EditText>
@@ -36,6 +38,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="@string/hintdescription"
+            android:textColor="@color/black"
             android:padding="10dp"
             android:layout_margin="20dp">
         </EditText>
@@ -45,14 +48,17 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="20dp"
+            android:textColor="@color/black"
             android:hint="@string/hint_email"
             android:padding="10dp">
         </EditText>
 
         <Button
+            android:id="@+id/updateUserProfile"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/txt_buttom_upload"
+            android:textColor="@color/white"
             android:padding="14dp"
             android:textSize="15dp"
             android:layout_marginStart="70dp"

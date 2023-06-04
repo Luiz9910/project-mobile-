@@ -47,7 +47,10 @@ class Profile : AppCompatActivity() {
             startActivity(toLogout)
         }
 
-
+        binding.buttonProfile.setOnClickListener {
+            var toEditProfile = Intent(this, EditProfile::class.java)
+            startActivity(toEditProfile)
+        }
 
         setUpList()
         binding.run {
