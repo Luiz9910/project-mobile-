@@ -54,7 +54,9 @@ class EditProfile : AppCompatActivity() {
                             "Usuário não encontrado para atualizar",
                             Toast.LENGTH_SHORT
                         ).show()
-                    } else {
+                    }
+
+                    if (response.code() == 500){
                         Toast.makeText(
                             this@EditProfile,
                             "Falha ao atualizar dados",
