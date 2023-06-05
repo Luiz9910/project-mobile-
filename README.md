@@ -35,18 +35,6 @@ Fluxo Principal:
 * O sistema valida as informações de login.
 * Se as informações estiverem corretas, o sistema redireciona o usuário para a página inicial do sistema.
 
-Fluxo Alternativo:
-
-Se as informações estiverem incorretas, o sistema exibe uma mensagem de erro e solicita que o usuário tente novamente.
-
-*	O usuário esquece sua senha.
-*	O usuário clica no botão "Esqueci minha senha".
-*	O sistema exibe um formulário para redefinir a senha do usuário.
-*	O usuário insere seu e-mail cadastrado e clica em "Enviar".
-*	O sistema envia um e-mail com instruções para redefinir a senha do usuário.
-*	O usuário segue as instruções no e-mail para redefinir sua senha.
-*	O usuário retorna à tela de login e insere sua nova senha para fazer login no sistema.
-
 ------------------------------------- 
 **Caso de Uso 3: Tela de Perfil do usuário**
 
@@ -83,16 +71,10 @@ Descrição: Um usuário pode fazer uma nova publicação no formato de texto e 
 Fluxo Principal:
 
 *	O usuário acessa a tela de publicação do sistema.
-*	O sistema exibe um formulário para criação de nova publicação, com campos para título, texto e opção para adicionar uma foto.
+*	O sistema exibe um formulário para criação de nova publicação, com campos para título, texto.
 *	O usuário preenche os campos desejados e clica em "Publicar".
 *	O sistema valida os campos e exibe uma mensagem de confirmação da publicação realizada.
 *	A nova publicação é adicionada à lista de publicações do usuário na tela de perfil.
-
-Fluxo Alternativo:
-
-O usuário decide não adicionar uma foto à publicação. 
-
-*	O sistema permite que a publicação seja realizada sem uma foto.
 
 Fluxo Alternativo:
 
@@ -178,60 +160,27 @@ O sistema detecta um erro ao tentar exibir os detalhes da publicação seleciona
 
 *	O sistema exibe uma mensagem de erro indicando que não foi possível exibir os detalhes da publicação e pede que o usuário tente novamente mais tarde.
 ------------------------------------- 
-**Caso de Uso 7: Tela de Configuração**
-
-Descrição: O usuário deseja mudar sua senha ou como deseja receber as notificações.
-
-Fluxo Principal:
-
-*	O usuário acessa a tela de configurações do sistema.
-*	O sistema exibe as opções disponíveis: "Trocar senha" e "Receber notificações".
-*	O usuário seleciona a opção "Trocar senha".
-*	O sistema exibe um formulário para o usuário preencher com sua senha atual, nova senha e confirmação da nova senha.
-*	O usuário preenche o formulário e clica em "Salvar".
-*	O sistema valida as informações fornecidas pelo usuário e atualiza a senha do usuário no sistema.
-*	O sistema exibe uma mensagem confirmando a atualização da senha do usuário.
-
-Fluxo Alternativo:
-
-*	O usuário seleciona a opção "Receber notificações".
-*	O sistema exibe um switch para o usuário habilitar ou desabilitar as notificações do aplicativo.
-*	O usuário seleciona sua preferência e clica em "Salvar".
-*	O sistema atualiza as configurações do usuário e exibe uma mensagem confirmando a atualização das configurações.
-
-Fluxo Alternativo: 
-
-O sistema detecta um erro ao tentar atualizar a senha do usuário.
-
-*	O sistema exibe uma mensagem de erro indicando que não foi possível exibir os detalhes da publicação e pede que o usuário tente novamente mais tarde.
-------------------------------------- 
 
 
 # Link do Figma: https://www.figma.com/file/nSiyio9tNPpJLvToDvIdPu/Untitled?node-id=0-1&t=L3aTWE0vK33XSWnS-0
 ## Tela de Login:
-![login-certo](https://user-images.githubusercontent.com/81191099/232356202-82ec441f-b388-443e-aee2-fedf231e6d6a.png)
+![IdeiaPitch](https://github.com/Luiz9910/project-mobile-/assets/81191099/ab093daa-165c-4b44-970c-7c9f948504ec)
 ## Tela de Cadastro:
-![07 04 2023_23 08 29_REC](https://user-images.githubusercontent.com/81191099/230699628-79755492-3855-4e65-bd8a-b1d3367ad565.png)
+![Register](https://github.com/Luiz9910/project-mobile-/assets/81191099/c14facba-da59-404d-a5d1-0bb99a5c0305)
 ## Perfil do Usuário:
-![Perfil-ss](https://user-images.githubusercontent.com/81191099/232356269-856edbac-ffe7-456c-b2dd-4269122f0584.png)
+![PROFILE](https://github.com/Luiz9910/project-mobile-/assets/81191099/c6aa84a7-7df3-4fe5-b7a9-61f19b81a9bf)
 ## Editar Perfil:
-![Editar Perfil](https://user-images.githubusercontent.com/81191099/232356292-0a7c998c-2d69-46cf-b34d-1fe0806c4ff6.png)
+![EditPerfil](https://github.com/Luiz9910/project-mobile-/assets/81191099/2047df73-2ab8-4105-8564-7ec40cb665a0)
 ## Tela Principal:
-![PaginaPrincipal](https://user-images.githubusercontent.com/81191099/232356370-2e2123ac-e11d-41dd-a57f-d6ca7c6402c2.png)
+![home](https://github.com/Luiz9910/project-mobile-/assets/81191099/24038fdd-310b-4f03-a09d-a6de8b940fd7)
 ## Tela Resposta Post:
-![Resposta Post](https://user-images.githubusercontent.com/81191099/232356407-59472d53-e8d7-4e7c-8cc0-1d9199b25688.png)
+![RespostaPost](https://github.com/Luiz9910/project-mobile-/assets/81191099/a96835fa-455f-41d4-adbb-5c79fc56d31a)
 ## Nova Publicação:
-![NewPost](https://user-images.githubusercontent.com/81191099/230791565-7e8c3963-b358-476e-b107-b8ddd6e89b3f.png)
+![new](https://github.com/Luiz9910/project-mobile-/assets/81191099/e08bf59c-002f-47c1-81cc-a3361db12808)
 ## Editar Publicação:
-![Edit](https://user-images.githubusercontent.com/81191099/230792841-529373f5-80d0-4bfc-b6af-1ad59dc2e801.png)
+![04 06 2023_20 50 04_REC](https://github.com/Luiz9910/project-mobile-/assets/81191099/e27ff0cf-8d00-4202-af3c-5480f74f88f7)
 ## Tela de Pesquisa:
-![Pesquisarrr](https://user-images.githubusercontent.com/81191099/232356678-8ceab127-3f3d-4f7c-b1eb-e81fa573a7af.png)
-## Configurações:
-![Config](https://user-images.githubusercontent.com/81191099/230792882-ed1ff611-6d2a-4aed-b58b-bbee88e84de8.png)
-## Redefinir Senha:
-![RedefinirSenha](https://user-images.githubusercontent.com/81191099/230792902-b189e614-7d0c-433b-b17b-735572070246.png)
-## Notificações:
-![Not](https://user-images.githubusercontent.com/81191099/230793212-f95e9eac-5618-4c0e-996a-a6563a83e37a.png)
+![pesquisar](https://github.com/Luiz9910/project-mobile-/assets/81191099/6def7685-b8d2-4c74-bded-f80f03ff9fb0)
 
 # Diagrama UML Mobile 
 ![david4](https://user-images.githubusercontent.com/95968468/232264421-d6d84804-251f-4706-8fe5-a244530d76c7.png)
