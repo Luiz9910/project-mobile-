@@ -1,5 +1,6 @@
 package com.example.projetofaculdademobile2
 
+import android.content.Context
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -60,13 +61,21 @@ class MainActivity : AppCompatActivity() {
                 override fun onResponse(call: Call<ResponseBody>, response: Response<ResponseBody>) {
                     if (response.code() == 200) {
                         Toast.makeText(this@MainActivity, "Login feito com secesso", Toast.LENGTH_SHORT).show()
+
+                        // Salvar os dados do usuário
+                        val sharedPreferences = getSharedPreferences("MeuApp", Context.MODE_PRIVATE)
+                        val editor = sharedPreferences.edit()
+                        editor.putString("email", binding.editEmail.text.toString())
+                        editor.putString("name", "luiz")
+                        editor.apply()
+
                         val toFeed = Intent(this@MainActivity, Feed::class.java)
                         startActivity(toFeed)
                         return;
                     }
 
                     if (response.code() == 400) {
-                        binding.editEmail.error = "Email já está sendo utilizado"
+                        Toast.makeText(this@MainActivity, "Email ou senha incorreta" ,Toast.LENGTH_SHORT).show()
                         return;
                     }
 
@@ -91,8 +100,8 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun getFormData(): LoginRequest {
-        val email = binding.editEmail.text.toString()
-        val password = binding.editSenha.text.toString()
+        val email = binding.editEmail.getText().toString()
+        val password = binding.editSenha.getText().toString()
 
         return LoginRequest(email, password)
     }

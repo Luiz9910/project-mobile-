@@ -1,8 +1,10 @@
 package com.example.projetofaculdademobile2
 
+import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.view.View
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.projetofaculdademobile2.ListProjectFeed.FeedProjectsListAdapter
@@ -28,6 +30,11 @@ class Feed : AppCompatActivity() {
         setUpList()
         binding.run {
             makeRequest()
+            val sharedPreferences = getSharedPreferences("MeuApp", Context.MODE_PRIVATE)
+            val email = sharedPreferences.getString("email", "")
+            val nome = sharedPreferences.getString("name", "")
+            Toast.makeText(this@Feed, email, Toast.LENGTH_SHORT).show()
+
         }
 
         binding.tabBar.toSearchMenu.setOnClickListener {

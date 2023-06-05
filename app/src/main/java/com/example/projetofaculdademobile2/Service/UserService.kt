@@ -11,7 +11,7 @@ import retrofit2.http.Path
 
 interface UserService {
     @POST("user/user")
-    fun createUser(@Body userModel: LoginRequest): Call<ResponseBody>
+    fun createUser(@Body userModel: UserModel): Call<ResponseBody>
 
     @PUT("user/{id}")
     fun updateUser(@Path("id") userId: Long, @Body userData: UserModel): Call<ResponseBody>
