@@ -80,6 +80,7 @@ class PostProject : AppCompatActivity() {
                             "Projeto salvo com sucesso",
                             Toast.LENGTH_SHORT
                         ).show()
+                        toFeedFunction()
                     } else {
                         Toast.makeText(
                             this@PostProject,
@@ -103,5 +104,10 @@ class PostProject : AppCompatActivity() {
         val userId = "1"
         // preciso ajeitar isso, ao inves de retonar todos esses texto que tá aí em baixo eu tenho que pegar os dados que veio do usuário e passar ele aí em baixo
         return ProjectModel(inputTitle, inputDescription, "1");
+    }
+
+    private fun toFeedFunction() {
+        val toFeed = Intent(this, Feed::class.java)
+        startActivity(toFeed)
     }
 }

@@ -4,7 +4,16 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Patterns
+import android.widget.Toast
+import com.example.projetofaculdademobile2.Model.LoginRequest
+import com.example.projetofaculdademobile2.Service.UserService
 import com.example.projetofaculdademobile2.databinding.ActivityMainBinding
+import okhttp3.ResponseBody
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
+import retrofit2.Retrofit
+import retrofit2.converter.gson.GsonConverterFactory
 
 class MainActivity : AppCompatActivity() {
 
@@ -37,8 +46,41 @@ class MainActivity : AppCompatActivity() {
             }
 
 
-            val navigationFeed = Intent(this, Feed::class.java)
-            startActivity(navigationFeed)
+            val userData = getFormData()
+
+            val retrofit = Retrofit.Builder()
+                .baseUrl("http://192.168.0.116:8080/")
+                .addConverterFactory(GsonConverterFactory.create())
+                .build()
+
+            val userService = retrofit.create(UserService::class.java)
+            val call = userService.login(userData)
+
+            call.enqueue(object : Callback<ResponseBody> {
+                override fun onResponse(call: Call<ResponseBody>, response: Response<ResponseBody>) {
+                    if (response.code() == 200) {
+                        Toast.makeText(this@MainActivity, "Login feito com secesso", Toast.LENGTH_SHORT).show()
+                        val toFeed = Intent(this@MainActivity, Feed::class.java)
+                        startActivity(toFeed)
+                        return;
+                    }
+
+                    if (response.code() == 400) {
+                        binding.editEmail.error = "Email já está sendo utilizado"
+                        return;
+                    }
+
+                    if (response.code() == 500) {
+                        Toast.makeText(this@MainActivity, "Falha ao cadastrar o usuário", Toast.LENGTH_SHORT).show()
+                        return;
+                    }
+                }
+
+                override fun onFailure(call: Call<ResponseBody>, t: Throwable) {
+                    Toast.makeText(this@MainActivity, "Falha na chamada", Toast.LENGTH_SHORT).show()
+                    t.printStackTrace()
+                }
+            })
         }
 
         // register
@@ -48,4 +90,10 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
+    private fun getFormData(): LoginRequest {
+        val email = binding.editEmail.text.toString()
+        val password = binding.editSenha.text.toString()
+
+        return LoginRequest(email, password)
+    }
 }
