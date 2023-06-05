@@ -7,6 +7,7 @@ import android.os.Bundle
 import android.util.Patterns
 import android.widget.Toast
 import com.example.projetofaculdademobile2.Model.LoginRequest
+import com.example.projetofaculdademobile2.Model.LoginResponse
 import com.example.projetofaculdademobile2.Service.UserService
 import com.example.projetofaculdademobile2.databinding.ActivityMainBinding
 import okhttp3.ResponseBody
@@ -57,21 +58,23 @@ class MainActivity : AppCompatActivity() {
             val userService = retrofit.create(UserService::class.java)
             val call = userService.login(userData)
 
-            call.enqueue(object : Callback<ResponseBody> {
-                override fun onResponse(call: Call<ResponseBody>, response: Response<ResponseBody>) {
-                    if (response.code() == 200) {
-                        Toast.makeText(this@MainActivity, "Login feito com secesso", Toast.LENGTH_SHORT).show()
+            call.enqueue(object : Callback<LoginResponse> {
+                override fun onResponse(call: Call<LoginResponse>, response: Response<LoginResponse>) {
+                    if (response.isSuccessful) {
+                        val loginResponse = response.body()
 
                         // Salvar os dados do usuário
                         val sharedPreferences = getSharedPreferences("MeuApp", Context.MODE_PRIVATE)
                         val editor = sharedPreferences.edit()
-                        editor.putString("email", binding.editEmail.text.toString())
-                        editor.putString("name", "luiz")
+                        editor.putString("email", loginResponse?.email)
+                        editor.putString("name", loginResponse?.name)
                         editor.apply()
+
+                        Toast.makeText(this@MainActivity, "Login feito com sucesso\nNome: ${loginResponse?.name}\nEmail: ${loginResponse?.email}", Toast.LENGTH_SHORT).show()
 
                         val toFeed = Intent(this@MainActivity, Feed::class.java)
                         startActivity(toFeed)
-                        return;
+                        return
                     }
 
                     if (response.code() == 400) {
@@ -85,7 +88,7 @@ class MainActivity : AppCompatActivity() {
                     }
                 }
 
-                override fun onFailure(call: Call<ResponseBody>, t: Throwable) {
+                override fun onFailure(call: Call<LoginResponse>, t: Throwable) {
                     Toast.makeText(this@MainActivity, "Falha na chamada", Toast.LENGTH_SHORT).show()
                     t.printStackTrace()
                 }
