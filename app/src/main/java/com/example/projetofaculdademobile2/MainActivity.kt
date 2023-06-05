@@ -66,11 +66,13 @@ class MainActivity : AppCompatActivity() {
                         // Salvar os dados do usuário
                         val sharedPreferences = getSharedPreferences("MeuApp", Context.MODE_PRIVATE)
                         val editor = sharedPreferences.edit()
+                        editor.putString("id", loginResponse?.id.toString())
                         editor.putString("email", loginResponse?.email)
                         editor.putString("name", loginResponse?.name)
+                        editor.putString("email", loginResponse?.description)
                         editor.apply()
 
-                        Toast.makeText(this@MainActivity, "Login feito com sucesso\nNome: ${loginResponse?.name}\nEmail: ${loginResponse?.email}", Toast.LENGTH_SHORT).show()
+                        Toast.makeText(this@MainActivity, "Login feito com sucesso", Toast.LENGTH_SHORT).show()
 
                         val toFeed = Intent(this@MainActivity, Feed::class.java)
                         startActivity(toFeed)

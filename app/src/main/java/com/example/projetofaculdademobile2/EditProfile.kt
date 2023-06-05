@@ -1,5 +1,6 @@
 package com.example.projetofaculdademobile2
 
+import android.content.Context
 import android.os.Bundle
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
@@ -28,8 +29,11 @@ class EditProfile : AppCompatActivity() {
                 .addConverterFactory(GsonConverterFactory.create())
                 .build()
 
+            val sharedPreferences = getSharedPreferences("MeuApp", Context.MODE_PRIVATE)
+            val id = sharedPreferences.getString("id", "")
+
             val userService = retrofit.create(UserService::class.java)
-            val call = userService.updateUser(2, userData)
+            val call = userService.updateUser(id, userData)
 
             call.enqueue(object : Callback<ResponseBody> {
                 override fun onResponse(
