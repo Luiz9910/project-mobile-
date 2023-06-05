@@ -161,6 +161,43 @@ O sistema detecta um erro ao tentar exibir os detalhes da publicação seleciona
 *	O sistema exibe uma mensagem de erro indicando que não foi possível exibir os detalhes da publicação e pede que o usuário tente novamente mais tarde.
 ------------------------------------- 
 
+Caso de uso: Menu Fixo na Tela
+
+Ator principal: Usuário
+
+Fluxo principal:
+
+O usuário visualiza o menu fixo na tela com 5 ícones: Início (casinha), Pesquisar (lupa), Adicionar (+), Perfil (bonequinho) e Sair (seta para a direita).
+O usuário clica no ícone "Início" (casinha).
+O sistema redireciona o usuário para o feed principal do aplicativo.
+O usuário clica no ícone "Pesquisar" (lupa).
+O sistema redireciona o usuário para a tela de pesquisa.
+O usuário clica no ícone "Adicionar" (+).
+O sistema permite ao usuário adicionar um novo post.
+O usuário clica no ícone "Perfil" (bonequinho).
+O sistema redireciona o usuário para a tela de perfil do usuário.
+O usuário clica no ícone "Sair" (seta para a direita).
+O sistema encerra a sessão do usuário e fecha o aplicativo.
+Fluxo alternativo:
+
+No passo 3 do fluxo principal, o sistema detecta um erro ao redirecionar o usuário para o feed principal.
+O sistema exibe uma mensagem de erro e retorna ao passo 1 do fluxo principal.
+Fluxo alternativo:
+
+No passo 5 do fluxo principal, o sistema detecta um erro ao redirecionar o usuário para a tela de pesquisa.
+O sistema exibe uma mensagem de erro e retorna ao passo 1 do fluxo principal.
+Fluxo alternativo:
+
+No passo 7 do fluxo principal, o sistema detecta um erro ao permitir ao usuário adicionar um novo post.
+O sistema exibe uma mensagem de erro e retorna ao passo 1 do fluxo principal.
+Fluxo alternativo:
+
+No passo 8 do fluxo principal, o sistema detecta um erro ao redirecionar o usuário para a tela de perfil.
+O sistema exibe uma mensagem de erro e retorna ao passo 1 do fluxo principal.
+Fluxo alternativo:
+
+No passo 10 do fluxo principal, o sistema detecta um erro ao encerrar a sessão do usuário.
+O sistema exibe uma mensagem de erro e retorna ao passo 1 do fluxo principal.
 
 # Link do Figma: https://www.figma.com/file/nSiyio9tNPpJLvToDvIdPu/Untitled?node-id=0-1&t=L3aTWE0vK33XSWnS-0
 ## Tela de Login:
