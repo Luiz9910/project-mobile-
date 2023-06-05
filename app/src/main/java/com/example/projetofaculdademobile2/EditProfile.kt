@@ -4,6 +4,7 @@ import android.content.Context
 import android.os.Bundle
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import com.example.projetofaculdademobile2.Model.LoginResponse
 import com.example.projetofaculdademobile2.Model.UserModel
 import com.example.projetofaculdademobile2.Service.UserService
 import com.example.projetofaculdademobile2.databinding.ActivityEditProfileBinding
@@ -35,10 +36,10 @@ class EditProfile : AppCompatActivity() {
             val userService = retrofit.create(UserService::class.java)
             val call = userService.updateUser(id, userData)
 
-            call.enqueue(object : Callback<ResponseBody> {
+            call.enqueue(object : Callback<LoginResponse> {
                 override fun onResponse(
-                    call: Call<ResponseBody>,
-                    response: Response<ResponseBody>,
+                    call: Call<LoginResponse>,
+                    response: Response<LoginResponse>,
                 ) {
                     if (response.code() == 200) {
                         Toast.makeText(
@@ -46,6 +47,13 @@ class EditProfile : AppCompatActivity() {
                             "Dados atualizados com sucesso",
                             Toast.LENGTH_SHORT
                         ).show()
+                        val loginResponse = response.body()
+                        val editor = sharedPreferences.edit()
+                        editor.putString("id", loginResponse?.id.toString())
+                        editor.putString("email", loginResponse?.email)
+                        editor.putString("name", loginResponse?.name)
+                        editor.putString("email", loginResponse?.description)
+                        editor.apply()
                     }
 
                     if (response.code() == 404) {
@@ -65,7 +73,7 @@ class EditProfile : AppCompatActivity() {
                     }
                 }
 
-                override fun onFailure(call: Call<ResponseBody>, t: Throwable) {
+                override fun onFailure(call: Call<LoginResponse>, t: Throwable) {
                     Toast.makeText(this@EditProfile, "Falha na chamada", Toast.LENGTH_SHORT).show()
                     t.printStackTrace()
                 }
