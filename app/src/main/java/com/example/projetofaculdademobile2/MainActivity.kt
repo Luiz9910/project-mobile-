@@ -69,7 +69,7 @@ class MainActivity : AppCompatActivity() {
                         editor.putString("id", loginResponse?.id.toString())
                         editor.putString("email", loginResponse?.email)
                         editor.putString("name", loginResponse?.name)
-                        editor.putString("email", loginResponse?.description)
+                        editor.putString("description", loginResponse?.description)
                         editor.apply()
 
                         Toast.makeText(this@MainActivity, "Login feito com sucesso", Toast.LENGTH_SHORT).show()

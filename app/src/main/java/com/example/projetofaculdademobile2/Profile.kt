@@ -4,6 +4,7 @@ import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.view.View
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.projetofaculdademobile2.ListProjectFeed.FeedProjectsListAdapter
@@ -92,11 +93,18 @@ class Profile : AppCompatActivity() {
                 call: Call<List<ProjectModelParcelize>>,
                 response: Response<List<ProjectModelParcelize>>
             ) {
+
+                var cont = 0
+                val sharedPreferences = getSharedPreferences("MeuApp", Context.MODE_PRIVATE)
+                val id = sharedPreferences.getString("id", "")
                 if (response.code() == 200) {
                     response.body()?.let {
-                        projectModelParcelizes.addAll(it)
-                        adapter.notifyItemRangeChanged(0, it.size)
-                        changeElementsVisibility(rvVisibilityMessageVisibility = View.VISIBLE)
+                        cont++
+                        if (it.get(cont).userid == id) {
+                            projectModelParcelizes.addAll(it)
+                            adapter.notifyItemRangeChanged(0, it.size)
+                            changeElementsVisibility(rvVisibilityMessageVisibility = View.VISIBLE)
+                        }
                     } ?: run {
                         changeElementsVisibility(errorMessageVisibility = View.VISIBLE)
                     }

@@ -52,7 +52,7 @@ class EditProfile : AppCompatActivity() {
                         editor.putString("id", loginResponse?.id.toString())
                         editor.putString("email", loginResponse?.email)
                         editor.putString("name", loginResponse?.name)
-                        editor.putString("email", loginResponse?.description)
+                        editor.putString("description", loginResponse?.description)
                         editor.apply()
                     }
 

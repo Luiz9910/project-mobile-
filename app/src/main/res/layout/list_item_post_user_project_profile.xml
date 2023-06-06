@@ -1,9 +1,9 @@
 <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_margin="7dp"
-    android:background="@drawable/border_shandow"
-    >
+    android:background="@drawable/border_shandow">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -23,6 +23,14 @@
                 android:layout_height="wrap_content"
                 android:layout_marginRight="10dp"
                 android:src="@drawable/ic_user" />
+
+            <TextView
+                android:id="@+id/idProject"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="o"
+                android:visibility="gone"
+                android:src="@drawable/ic_trash" />
 
             <androidx.appcompat.widget.AppCompatTextView
                 android:id="@+id/title"

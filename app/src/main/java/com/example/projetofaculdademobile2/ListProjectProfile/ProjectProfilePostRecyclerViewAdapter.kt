@@ -3,7 +3,7 @@ package com.example.projetofaculdademobile2.ListProjectProfile
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.example.projetofaculdademobile2.databinding.ListItemPostProjectBinding
+import com.example.projetofaculdademobile2.databinding.ListItemPostUserProjectProfileBinding
 
 /**
  * TODO (ATIVIDADE)
@@ -25,8 +25,8 @@ class ProjectProfilePostRecyclerViewAdapter(
      * Cria a view que você deseja mostrar na lista
      */
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
-        val listItemDetailsBinding = ListItemPostProjectBinding.inflate(LayoutInflater.from(parent.context), parent, false)
-        return ProjectProfileDetailsViewHolder(listItemDetailsBinding)
+        val listItemDetailsBinding = ListItemPostUserProjectProfileBinding.inflate(LayoutInflater.from(parent.context), parent, false)
+        return ProjectProfileDetailsViewHolder(listItemPostUserProjectProfileBinding = listItemDetailsBinding)
     }
 
     override fun getItemViewType(position: Int): Int =
