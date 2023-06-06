@@ -47,8 +47,12 @@ class EditProfile : AppCompatActivity() {
                             "Dados atualizados com sucesso",
                             Toast.LENGTH_SHORT
                         ).show()
-                        val loginResponse = response.body()
+                        val sharedPreferences = getSharedPreferences("MeuApp", Context.MODE_PRIVATE)
                         val editor = sharedPreferences.edit()
+                        editor.clear() // Limpa todos os valores armazenados no SharedPreferences
+                        editor.apply()
+
+                        val loginResponse = response.body()
                         editor.putString("id", loginResponse?.id.toString())
                         editor.putString("email", loginResponse?.email)
                         editor.putString("name", loginResponse?.name)

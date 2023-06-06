@@ -48,6 +48,10 @@ class Feed : AppCompatActivity() {
         }
 
         binding.tabBar.toLogout.setOnClickListener {
+            val sharedPreferences = getSharedPreferences("MeuApp", Context.MODE_PRIVATE)
+            val editor = sharedPreferences.edit()
+            editor.clear() // Limpa todos os valores armazenados no SharedPreferences
+            editor.apply()
             val toLogout = Intent(this, MainActivity::class.java)
             startActivity(toLogout)
         }
@@ -65,51 +69,46 @@ class Feed : AppCompatActivity() {
 
 
     private fun makeRequest() {
-        // create retrofit object
         val instance = Retrofit.Builder()
-            .baseUrl("http://192.168.3.237:8080/")
+            .baseUrl("http://192.168.0.116:8080/")
             .addConverterFactory(GsonConverterFactory.create())
             .build()
-        // create service using Interface that has the request methods
-        val service = instance.create(ProjectService::class.java)
-        // build the call
-        val reponse: Call<List<ProjectModelParcelize>> = service.listProject("projects")
-        // make the call
-        reponse.enqueue(object : Callback<List<ProjectModelParcelize>> {
 
+        val service = instance.create(ProjectService::class.java)
+
+        val response: Call<List<ProjectModelParcelize>> = service.listProject("projects")
+
+        response.enqueue(object : Callback<List<ProjectModelParcelize>> {
             override fun onResponse(
                 call: Call<List<ProjectModelParcelize>>,
                 response: Response<List<ProjectModelParcelize>>
             ) {
-                if (response.code() == 200) {
-                    response.body()?.let {
-                        projectModelParcelizes.addAll(it)
-                        adapter.notifyItemRangeChanged(0, it.size)
-                        changeElementsVisibility(rvVisibilityMessageVisibility = View.VISIBLE)
-                    } ?: run {
-                        changeElementsVisibility(errorMessageVisibility = View.VISIBLE)
+                if (response.isSuccessful) {
+                    val projects = response.body()
+
+                    if (projects != null) {
+                        val filteredProjects = projects.filter { it.id == 1 }
+
+                        projectModelParcelizes.addAll(filteredProjects)
+                        adapter.notifyDataSetChanged()
+
+                        if (filteredProjects.isNotEmpty()) {
+                            changeElementsVisibility(rvVisibilityMessageVisibility = View.VISIBLE)
+                        } else {
+                            changeElementsVisibility(emptyMessageVisibility = View.VISIBLE)
+                        }
+                    } else {
+                        changeElementsVisibility(emptyMessageVisibility = View.VISIBLE)
                     }
-                }
-
-                if (response.code() == 204){
-                    changeElementsVisibility(emptyMessageVisibility = View.VISIBLE)
-                    return;
-                }
-
-                if (response.code() == 500) {
+                } else {
                     changeElementsVisibility(errorMessageVisibility = View.VISIBLE)
-                    return;
                 }
             }
 
-            override fun onFailure(
-                call: Call<List<ProjectModelParcelize>>,
-                t: Throwable
-            ) {
+            override fun onFailure(call: Call<List<ProjectModelParcelize>>, t: Throwable) {
                 t.printStackTrace()
                 changeElementsVisibility(errorMessageVisibility = View.VISIBLE)
             }
-
         })
     }
 

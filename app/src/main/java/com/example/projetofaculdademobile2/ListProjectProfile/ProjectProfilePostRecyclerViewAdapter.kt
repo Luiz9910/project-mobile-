@@ -3,6 +3,7 @@ package com.example.projetofaculdademobile2.ListProjectProfile
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import com.example.projetofaculdademobile2.Model.ProjectModelParcelize
 import com.example.projetofaculdademobile2.databinding.ListItemPostUserProjectProfileBinding
 
 /**
@@ -18,7 +19,7 @@ import com.example.projetofaculdademobile2.databinding.ListItemPostUserProjectPr
  * a view que contem os detalhes
  */
 class ProjectProfilePostRecyclerViewAdapter(
-    private val persons: ArrayList<ProjectProfilePost>
+    private val persons: ArrayList<ProjectModelParcelize>
 ) : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 
     /**

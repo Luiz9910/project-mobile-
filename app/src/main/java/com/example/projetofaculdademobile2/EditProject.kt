@@ -1,5 +1,6 @@
 package com.example.projetofaculdademobile2
 
+import android.content.Context
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -34,6 +35,10 @@ class EditProject : AppCompatActivity() {
         }
 
         binding.tabBar.toLogout.setOnClickListener {
+            val sharedPreferences = getSharedPreferences("MeuApp", Context.MODE_PRIVATE)
+            val editor = sharedPreferences.edit()
+            editor.clear() // Limpa todos os valores armazenados no SharedPreferences
+            editor.apply()
             val toLogout = Intent(this, MainActivity::class.java)
             startActivity(toLogout)
         }

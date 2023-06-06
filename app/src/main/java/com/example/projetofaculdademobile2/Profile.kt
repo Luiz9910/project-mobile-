@@ -4,10 +4,9 @@ import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.view.View
-import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.example.projetofaculdademobile2.ListProjectFeed.FeedProjectsListAdapter
+import com.example.projetofaculdademobile2.ListProjectProfile.ProjectProfilePostRecyclerViewAdapter
 import com.example.projetofaculdademobile2.Model.ProjectModelParcelize
 import com.example.projetofaculdademobile2.Service.ProjectService
 import com.example.projetofaculdademobile2.databinding.ActivityProfileBinding
@@ -20,7 +19,7 @@ import retrofit2.converter.gson.GsonConverterFactory
 class Profile : AppCompatActivity() {
     private lateinit var binding: ActivityProfileBinding
     private lateinit var projectModelParcelizes: ArrayList<ProjectModelParcelize>
-    private lateinit var adapter: FeedProjectsListAdapter
+    private lateinit var adapter: ProjectProfilePostRecyclerViewAdapter
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityProfileBinding.inflate(layoutInflater)
@@ -50,6 +49,10 @@ class Profile : AppCompatActivity() {
         }
 
         binding.tabBar.toLogout.setOnClickListener {
+            val sharedPreferences = getSharedPreferences("MeuApp", Context.MODE_PRIVATE)
+            val editor = sharedPreferences.edit()
+            editor.clear() // Limpa todos os valores armazenados no SharedPreferences
+            editor.apply()
             val toLogout = Intent(this, MainActivity::class.java)
             startActivity(toLogout)
         }
@@ -79,7 +82,7 @@ class Profile : AppCompatActivity() {
     private fun makeRequest() {
         // create retrofit object
         val instance = Retrofit.Builder()
-            .baseUrl("http://192.168.3.237:8080/")
+            .baseUrl("http://192.168.0.116:8080/")
             .addConverterFactory(GsonConverterFactory.create())
             .build()
         // create service using Interface that has the request methods
@@ -100,7 +103,7 @@ class Profile : AppCompatActivity() {
                 if (response.code() == 200) {
                     response.body()?.let {
                         cont++
-                        if (it.get(cont).userid == id) {
+                        if (it[cont].userid.equals(id.toString())) {
                             projectModelParcelizes.addAll(it)
                             adapter.notifyItemRangeChanged(0, it.size)
                             changeElementsVisibility(rvVisibilityMessageVisibility = View.VISIBLE)
@@ -134,7 +137,7 @@ class Profile : AppCompatActivity() {
 
     private fun setUpList() {
         projectModelParcelizes = arrayListOf()
-        adapter = FeedProjectsListAdapter(
+        adapter = ProjectProfilePostRecyclerViewAdapter(
             projectModelParcelizes
         )
         binding.listProjectProfile.layoutManager = LinearLayoutManager(this)

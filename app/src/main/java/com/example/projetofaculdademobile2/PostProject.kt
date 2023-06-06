@@ -37,6 +37,10 @@ class PostProject : AppCompatActivity() {
         }
 
         binding.tabBar.toLogout.setOnClickListener {
+            val sharedPreferences = getSharedPreferences("MeuApp", Context.MODE_PRIVATE)
+            val editor = sharedPreferences.edit()
+            editor.clear() // Limpa todos os valores armazenados no SharedPreferences
+            editor.apply()
             val toLogout = Intent(this, MainActivity::class.java)
             startActivity(toLogout)
         }

@@ -71,6 +71,8 @@
 
     <include
         android:id="@+id/tabBar"
-        layout="@layout/activity_menu" />
+        layout="@layout/activity_menu"
+        tools:layout_editor_absoluteX="105dp"
+        tools:layout_editor_absoluteY="16dp" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

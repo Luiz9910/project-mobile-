@@ -1,5 +1,6 @@
 package com.example.projetofaculdademobile2
 
+import android.content.Context
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -41,6 +42,11 @@ class Search : AppCompatActivity() {
         }
 
         binding.tabBar.toLogout.setOnClickListener {
+            val sharedPreferences = getSharedPreferences("MeuApp", Context.MODE_PRIVATE)
+            val editor = sharedPreferences.edit()
+            editor.clear() // Limpa todos os valores armazenados no SharedPreferences
+            editor.apply()
+
             val toLogout = Intent(this, MainActivity::class.java)
             startActivity(toLogout)
         }
@@ -48,7 +54,6 @@ class Search : AppCompatActivity() {
         setUpList()
         binding.iconSearch.setOnClickListener {
             var userInput = binding.editText.getText().toString();
-
             makeRequest(userInput)
         }
     }
@@ -83,16 +88,20 @@ class Search : AppCompatActivity() {
             ) {
                 if (response.code() == 200) {
                     response.body()?.let {
-                        if (it.isEmpty()) {
-                            changeElementsVisibility(emptyMessageVisibility = View.VISIBLE)
-                        } else {
-                            projectModelParcelizes.addAll(it)
-                            adapter.notifyItemRangeChanged(0, it.size)
-                            changeElementsVisibility(rvVisibilityMessageVisibility = View.VISIBLE)
-                        }
+                        projectModelParcelizes.addAll(it)
+                        adapter.notifyItemRangeChanged(0, it.size)
+                        changeElementsVisibility(rvVisibilityMessageVisibility = View.VISIBLE)
                     } ?: run {
                         changeElementsVisibility(errorMessageVisibility = View.VISIBLE)
                     }
+                }
+
+                if (response.code() == 204) {
+                    changeElementsVisibility(emptyMessageVisibility = View.VISIBLE)
+                }
+
+                if (response.code() == 500) {
+                    changeElementsVisibility(errorMessageVisibility = View.VISIBLE)
                 }
             }
 
