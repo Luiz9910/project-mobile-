@@ -1,5 +1,6 @@
 package com.example.projetofaculdademobile2
 
+import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.view.View
@@ -23,6 +24,14 @@ class Profile : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityProfileBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
+        val sharedPreferences = getSharedPreferences("MeuApp", Context.MODE_PRIVATE)
+        val id = sharedPreferences.getString("id", "")
+        val name = sharedPreferences.getString("name", "")
+        val description = sharedPreferences.getString("description", "")
+
+        binding.nameUserId.text = name
+        binding.descriptionUserId.text = description
 
         binding.tabBar.toFeedMenu.setOnClickListener {
             var toFeed = Intent(this, Feed::class.java)

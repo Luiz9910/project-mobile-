@@ -1,5 +1,6 @@
 package com.example.projetofaculdademobile2
 
+import android.content.Context
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -99,11 +100,12 @@ class PostProject : AppCompatActivity() {
 
     }
     private fun getFormData(): ProjectModel {
+        val sharedPreferences = getSharedPreferences("MeuApp", Context.MODE_PRIVATE)
+        val id = sharedPreferences.getString("id", "")
+
         var inputTitle = binding.TituloPublicacao.getText().toString();
         val inputDescription = binding.DescriptionPublicacao.getText().toString()
-        val userId = "1"
-        // preciso ajeitar isso, ao inves de retonar todos esses texto que tá aí em baixo eu tenho que pegar os dados que veio do usuário e passar ele aí em baixo
-        return ProjectModel(inputTitle, inputDescription, "1");
+        return ProjectModel(inputTitle, inputDescription, id);
     }
 
     private fun toFeedFunction() {

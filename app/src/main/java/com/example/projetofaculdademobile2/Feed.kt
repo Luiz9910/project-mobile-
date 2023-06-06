@@ -1,8 +1,10 @@
 package com.example.projetofaculdademobile2
 
+import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.view.View
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.projetofaculdademobile2.ListProjectFeed.FeedProjectsListAdapter
