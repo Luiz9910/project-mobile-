@@ -55,4 +55,6 @@
     <string name="descriptionFeed">Descrição: %s</string>
     <string name="error_message">Aconteceu um erro por aqui, tente novamente!</string>
     <string name="empty_message">Ops, parece que não tem conteúdo!</string>
+
+    <string name="exemple">Olá, Me fale mais sobre sua ideia! sobre qual publico você pretende alcançar e quais estrategias você tem!</string>
 </resources>
