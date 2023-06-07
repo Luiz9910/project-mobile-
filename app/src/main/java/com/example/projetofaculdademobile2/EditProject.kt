@@ -59,11 +59,11 @@ class EditProject : AppCompatActivity() {
                 .addConverterFactory(GsonConverterFactory.create())
                 .build()
 
-            val projectId = intent.getStringExtra("id")
+            val intent = intent
+            val projectId = intent.getStringExtra("projectid")
 
             val projectService = retrofit.create(ProjectService::class.java)
-            val call = projectService.updateProject("2", userData)
-
+            val call = projectService.updateProject("8", userData)
             call.enqueue(object : Callback<ProjectModel> {
                 override fun onResponse(
                     call: Call<ProjectModel>,
@@ -82,7 +82,7 @@ class EditProject : AppCompatActivity() {
                     if (response.code() == 404) {
                         Toast.makeText(
                             this@EditProject,
-                            "Usuário não encontrado para atualizar",
+                            "Projeto não encontrado para atualizar",
                             Toast.LENGTH_SHORT
                         ).show()
                     }

@@ -33,14 +33,12 @@ class ProjectProfileDetailsViewHolder(val listItemPostUserProjectProfileBinding:
             }
 
             listItemPostUserProjectProfileBinding.editProfileList.setOnClickListener {
-                val projectId = it.id?.toString() // Adicione a verificação de nulidade usando o operador de chamada segura '?'
+                val projectId = it.id.toString()
 
-                if (projectId != null) {
-                    val context = listItemPostUserProjectProfileBinding.root.context
-                    val intent = Intent(context, EditProject::class.java)
-                    intent.putExtra("projectid", projectId)
-                    context.startActivity(intent)
-                }
+                val context = listItemPostUserProjectProfileBinding.root.context
+                val intent = Intent(context, EditProject::class.java)
+                intent.putExtra("projectid", projectId)
+                context.startActivity(intent)
             }
         }
     }
