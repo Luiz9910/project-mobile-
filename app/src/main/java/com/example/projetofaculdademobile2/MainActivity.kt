@@ -35,9 +35,6 @@ class MainActivity : AppCompatActivity() {
 
                 if (email.isEmpty()) {
                     binding.editEmail.error = "Campo obrigatório"
-
-                } else if (!Patterns.EMAIL_ADDRESS.matcher(email).matches()) {
-                    binding.editEmail.error = "Formato de e-mail inválido"
                 }
 
                 if (password.isEmpty()) {
@@ -92,7 +89,6 @@ class MainActivity : AppCompatActivity() {
 
                 override fun onFailure(call: Call<LoginResponse>, t: Throwable) {
                     Toast.makeText(this@MainActivity, "Falha na chamada", Toast.LENGTH_SHORT).show()
-                    t.printStackTrace()
                 }
             })
         }
