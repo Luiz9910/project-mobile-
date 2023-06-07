@@ -83,32 +83,35 @@ class Feed : AppCompatActivity() {
                 call: Call<List<ProjectModelParcelize>>,
                 response: Response<List<ProjectModelParcelize>>
             ) {
-                if (response.isSuccessful) {
-                    val projects = response.body()
-
-                    if (projects != null) {
-                        val filteredProjects = projects.filter { it.id == 1 }
-
-                        projectModelParcelizes.addAll(filteredProjects)
-                        adapter.notifyDataSetChanged()
-
-                        if (filteredProjects.isNotEmpty()) {
-                            changeElementsVisibility(rvVisibilityMessageVisibility = View.VISIBLE)
-                        } else {
-                            changeElementsVisibility(emptyMessageVisibility = View.VISIBLE)
-                        }
-                    } else {
-                        changeElementsVisibility(emptyMessageVisibility = View.VISIBLE)
+                if (response.code() == 200) {
+                    response.body()?.let {
+                        projectModelParcelizes.addAll(it)
+                        adapter.notifyItemRangeChanged(0, it.size)
+                        changeElementsVisibility(rvVisibilityMessageVisibility = View.VISIBLE)
+                    } ?: run {
+                        changeElementsVisibility(errorMessageVisibility = View.VISIBLE)
                     }
-                } else {
+                }
+
+                if (response.code() == 204){
+                    changeElementsVisibility(emptyMessageVisibility = View.VISIBLE)
+                    return;
+                }
+
+                if (response.code() == 500) {
                     changeElementsVisibility(errorMessageVisibility = View.VISIBLE)
+                    return;
                 }
             }
 
-            override fun onFailure(call: Call<List<ProjectModelParcelize>>, t: Throwable) {
+            override fun onFailure(
+                call: Call<List<ProjectModelParcelize>>,
+                t: Throwable
+            ) {
                 t.printStackTrace()
                 changeElementsVisibility(errorMessageVisibility = View.VISIBLE)
             }
+
         })
     }
 

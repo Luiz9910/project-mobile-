@@ -34,7 +34,7 @@
 
             <androidx.appcompat.widget.AppCompatTextView
                 android:id="@+id/title"
-                android:layout_width="265dp"
+                android:layout_width="220dp"
                 android:layout_height="match_parent"
                 android:text="@string/titleFeed"
                 android:textColor="@color/black" />
@@ -73,16 +73,6 @@
                 android:layout_width="53px"
                 android:layout_height="wrap_content"
                 android:src="@drawable/ic_mensage" />
-
-            <Space
-                android:layout_width="0dp"
-                android:layout_height="0dp"
-                android:layout_weight="1" />
-
-            <ImageView
-                android:layout_width="53px"
-                android:layout_height="match_parent"
-                android:src="@drawable/like" />
 
         </LinearLayout>
     </LinearLayout>

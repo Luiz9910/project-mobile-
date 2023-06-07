@@ -96,31 +96,27 @@ class Profile : AppCompatActivity() {
                 call: Call<List<ProjectModelParcelize>>,
                 response: Response<List<ProjectModelParcelize>>
             ) {
-
-                var cont = 0
                 val sharedPreferences = getSharedPreferences("MeuApp", Context.MODE_PRIVATE)
                 val id = sharedPreferences.getString("id", "")
-                if (response.code() == 200) {
-                    response.body()?.let {
-                        cont++
-                        if (it[cont].userid.equals(id.toString())) {
-                            projectModelParcelizes.addAll(it)
-                            adapter.notifyItemRangeChanged(0, it.size)
+                if (response.isSuccessful) {
+                    val projects = response.body()
+
+                    if (projects != null) {
+                        val filteredProjects = projects.filter { it.userid ==  id}
+
+                        projectModelParcelizes.addAll(filteredProjects)
+                        adapter.notifyDataSetChanged()
+
+                        if (filteredProjects.isNotEmpty()) {
                             changeElementsVisibility(rvVisibilityMessageVisibility = View.VISIBLE)
+                        } else {
+                            changeElementsVisibility(emptyMessageVisibility = View.VISIBLE)
                         }
-                    } ?: run {
-                        changeElementsVisibility(errorMessageVisibility = View.VISIBLE)
+                    } else {
+                        changeElementsVisibility(emptyMessageVisibility = View.VISIBLE)
                     }
-                }
-
-                if (response.code() == 204){
-                    changeElementsVisibility(emptyMessageVisibility = View.VISIBLE)
-                    return;
-                }
-
-                if (response.code() == 500) {
+                } else {
                     changeElementsVisibility(errorMessageVisibility = View.VISIBLE)
-                    return;
                 }
             }
 

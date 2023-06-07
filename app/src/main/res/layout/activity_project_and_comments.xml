@@ -5,7 +5,39 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/white"
-    tools:context=".MainActivity">
+    tools:context=".ProjectAndComments">
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_user"
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteX="20dp"
+        tools:layout_editor_absoluteY="20dp"
+        />
+
+    <TextView
+        android:id="@+id/title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/titleFeed"
+        tools:ignore="MissingConstraints"
+        android:textColor="@color/black"
+        tools:layout_editor_absoluteX="57dp"
+        tools:layout_editor_absoluteY="7dp"
+        android:textSize="20dp" />
+
+    <TextView
+        android:id="@+id/description"
+        android:layout_width="372dp"
+        android:layout_height="49dp"
+        android:textColor="@color/black"
+        android:layout_marginEnd="24dp"
+        android:text="@string/descriptionFeed"
+        android:textSize="10dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteY="55dp" />
 
     <androidx.appcompat.widget.AppCompatTextView
         android:id="@+id/erroMessage"
@@ -32,18 +64,19 @@
 
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/listProject"
+        android:id="@+id/listcommentproject"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_marginTop="16dp"
-        android:layout_marginBottom="24dp"
         android:visibility="gone"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        tools:listitem="@layout/list_item_projects_feed" />
-
+        tools:listitem="@layout/list_item_comment" />
 
     <include
         android:id="@+id/tabBar"
-        layout="@layout/activity_menu" />
+        layout="@layout/activity_menu"
+        tools:layout_editor_absoluteX="105dp"
+        tools:layout_editor_absoluteY="16dp" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
