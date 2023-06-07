@@ -62,7 +62,7 @@ class Register : AppCompatActivity() {
                 binding.editSenha.error = "Campo obrigatório"
                 hasError = true
             } else if (password.length < 8) {
-                binding.editSenha.error = "Tem que ter 6 caracteres"
+                binding.editSenha.error = "Tem que ter 8 caracteres"
                 hasError = true
             } else if (!isPasswordStrong(password)) {
                 binding.editSenha.error = "Senha fraca. Use uma senha mais forte."
