@@ -14,4 +14,8 @@ interface ProjectService {
 
     @POST("project")
     fun postProject(@Body ProjectModel: com.example.projetofaculdademobile2.Model.ProjectModel): Call<ResponseBody>
+
+    @DELETE("project/{projectId}")
+    fun deleteProject(@Path("projectId") projectId: String): Call<ResponseBody>
+
 }

@@ -25,21 +25,20 @@
                 android:src="@drawable/ic_user" />
 
             <androidx.appcompat.widget.AppCompatTextView
-                android:id="@+id/title"
+                android:id="@+id/nameToUserList"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Título"
+                android:text="nome do usuário"
                 android:textColor="@color/black" />
 
         </LinearLayout>
 
         <androidx.appcompat.widget.AppCompatTextView
-            android:id="@+id/description"
+            android:id="@+id/response"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="5dp"
-            android:text="Descrição"
+            android:text="Comentário"
             android:textColor="@color/black" />
-
         </LinearLayout>
 </androidx.cardview.widget.CardView>
