@@ -1,8 +1,10 @@
 package com.example.projetofaculdademobile2.ListProjectProfile
 
-import android.widget.Toast
+
+import android.content.Intent
 import androidx.recyclerview.widget.RecyclerView
-import com.example.projetofaculdademobile2.Model.CommentModel
+import com.example.projetofaculdademobile2.EditProject
+import com.example.projetofaculdademobile2.Model.ProjectModel
 import com.example.projetofaculdademobile2.Model.ProjectModelParcelize
 import com.example.projetofaculdademobile2.Service.ProjectService
 import com.example.projetofaculdademobile2.databinding.ListItemPostUserProjectProfileBinding
@@ -28,6 +30,17 @@ class ProjectProfileDetailsViewHolder(val listItemPostUserProjectProfileBinding:
 
                 // Chame o método para excluir o projeSto com o ID correspondente na sua API
                 deleteProject(projectId)
+            }
+
+            listItemPostUserProjectProfileBinding.editProfileList.setOnClickListener {
+                val projectId = it.id?.toString() // Adicione a verificação de nulidade usando o operador de chamada segura '?'
+
+                if (projectId != null) {
+                    val context = listItemPostUserProjectProfileBinding.root.context
+                    val intent = Intent(context, EditProject::class.java)
+                    intent.putExtra("projectid", projectId)
+                    context.startActivity(intent)
+                }
             }
         }
     }

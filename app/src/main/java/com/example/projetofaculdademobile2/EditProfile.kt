@@ -8,7 +8,6 @@ import com.example.projetofaculdademobile2.Model.LoginResponse
 import com.example.projetofaculdademobile2.Model.UserModel
 import com.example.projetofaculdademobile2.Service.UserService
 import com.example.projetofaculdademobile2.databinding.ActivityEditProfileBinding
-import okhttp3.ResponseBody
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
